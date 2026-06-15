@@ -6,10 +6,10 @@ import {
 } from "@/data/brand";
 
 export {
-  LINA_WHATSAPP_PHONE,
   WHATSAPP_PHONE,
   brandColors,
   buildWhatsAppUrl,
+  media,
   navItems,
   site,
   testimonials,

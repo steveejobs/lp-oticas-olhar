@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { Glasses, MessageCircle, Sparkles } from "lucide-react";
+import { AnimatedReveal } from "@/components/AnimatedReveal";
 import { GoogleRatingBadge } from "@/components/GoogleRatingBadge";
-import { buildWhatsAppUrl, site } from "@/lib/site";
+import { buildWhatsAppUrl, media, site } from "@/lib/site";
 
 const framesMessage =
   "Olá! Vim pelo site da Óticas Olhar e quero ver opções de armações.";
@@ -10,11 +11,11 @@ export function LensHero() {
   return (
     <section className="olhar-hero" aria-labelledby="hero-title">
       <div className="site-shell olhar-hero-grid">
-        <div className="olhar-hero-copy">
+        <AnimatedReveal className="olhar-hero-copy">
           <Image
             src={site.logoIcon}
-            width={132}
-            height={132}
+            width={154}
+            height={154}
             alt="Óticas Olhar GLC"
             priority
             className="olhar-hero-logo"
@@ -27,7 +28,7 @@ export function LensHero() {
             escolher com segurança.
           </p>
 
-          <div className="hero-actions">
+          <div className="hero-actions olhar-hero-actions">
             <a
               href={site.whatsappUrl}
               className="button button-red"
@@ -52,24 +53,28 @@ export function LensHero() {
             reviews={`${site.reviewCount} avaliações`}
             className="olhar-hero-rating"
           />
-        </div>
+        </AnimatedReveal>
 
-        <div className="olhar-hero-visual" aria-label="Vitrine da Óticas Olhar">
+        <AnimatedReveal className="olhar-hero-visual" delay={0.12}>
           <div className="olhar-hero-media">
-            <Image
-              src={site.heroImage}
-              alt="Armação de óculos em destaque na Óticas Olhar"
-              fill
-              priority
-              fetchPriority="high"
-              sizes="(max-width: 900px) 92vw, 560px"
+            <video
+              src={media.heroVideo}
+              poster={media.heroPoster}
+              muted
+              loop
+              playsInline
+              autoPlay
+              preload="metadata"
+              aria-label="Vídeo de armações e vitrine da Óticas Olhar"
             />
+            <span className="lens-sweep" aria-hidden="true" />
+            <span className="optic-line" aria-hidden="true" />
           </div>
           <div className="olhar-hero-note">
             <Sparkles size={18} aria-hidden="true" />
             <span>Armações, solares e lentes com orientação clara.</span>
           </div>
-        </div>
+        </AnimatedReveal>
       </div>
     </section>
   );

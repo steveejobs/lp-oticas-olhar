@@ -3,9 +3,11 @@ import {
   Glasses,
   HeartHandshake,
   MessageSquareText,
+  Play,
   Store,
 } from "lucide-react";
 import { AnimatedReveal } from "@/components/AnimatedReveal";
+import { media } from "@/lib/site";
 
 const experienceItems = [
   { icon: BadgeCheck, text: "Atendimento elogiado por clientes" },
@@ -26,14 +28,32 @@ export function ProcessSection() {
         <AnimatedReveal className="section-heading compact">
           <p className="eyebrow">Experiência Óticas Olhar</p>
           <h2 id="experience-title">
-            Atendimento claro, escolha segura e uma experiência mais
-            confortável.
+            Veja de perto a experiência Óticas Olhar.
           </h2>
           <p>
-            Na Óticas Olhar, você não escolhe apenas uma armação. Você recebe
-            orientação para encontrar conforto, estética e lentes adequadas à
-            sua rotina.
+            Ambiente confortável, variedade de armações e atendimento para
+            escolher com calma.
           </p>
+        </AnimatedReveal>
+
+        <AnimatedReveal className="olhar-experience-video-card" delay={0.08}>
+          <div className="olhar-experience-video-frame">
+            <video
+              src={media.experienceVideo}
+              poster={media.heroPoster}
+              muted
+              loop
+              playsInline
+              controls
+              preload="metadata"
+              aria-label="Vídeo da experiência na Óticas Olhar"
+            />
+            <span className="video-glass-frame" aria-hidden="true" />
+          </div>
+          <div className="olhar-experience-video-caption">
+            <Play size={17} aria-hidden="true" />
+            <span>Vitrine, atendimento e detalhes para escolher melhor.</span>
+          </div>
         </AnimatedReveal>
 
         <div className="olhar-experience-list">

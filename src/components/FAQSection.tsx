@@ -14,7 +14,7 @@ const faqs = [
   },
   {
     question: "Onde fica a Óticas Olhar?",
-    answer: `A unidade Central fica na ${site.locations[0].address}. A unidade Lina fica na ${site.locations[1].address}.`,
+    answer: `A Óticas Olhar fica na ${site.locations[0].address}.`,
   },
   {
     question: "Posso chamar pelo WhatsApp antes de ir?",

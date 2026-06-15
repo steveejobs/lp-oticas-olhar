@@ -9,9 +9,7 @@ import {
   Star,
   Sun,
 } from "lucide-react";
-import { TestimonialsMobileMarquee } from "@/components/ui/testimonials-columns-1";
-import { buildWhatsAppUrl, site, testimonialsSummary } from "@/lib/site";
-import { testimonials } from "@/data/testimonials";
+import { buildWhatsAppUrl, media, site, testimonialsSummary } from "@/lib/site";
 
 const links = [
   {
@@ -23,8 +21,8 @@ const links = [
   },
   {
     label: "Ver localização",
-    href: "#enderecos",
-    ariaLabel: "Ver endereços da Óticas Olhar",
+    href: site.mapsRouteUrl,
+    ariaLabel: "Abrir rota para a Óticas Olhar",
     icon: MapPin,
     variant: "light",
   },
@@ -64,18 +62,22 @@ const links = [
 
 const showcase = [
   {
-    src: site.heroImage,
-    alt: "Armação de óculos na Óticas Olhar",
+    type: "video",
+    src: media.experienceVideo,
+    poster: media.heroPoster,
+    alt: "Vídeo da vitrine da Óticas Olhar",
   },
   {
+    type: "image",
     src: "/galeria%20cole%C3%A7%C3%A3o/Maximalista%20na%20medida%20certa.%20%F0%9F%98%8E%E2%9C%A8Esse%20modelo%20entrega%20presen%C3%A7a%20de%20longe%20%E2%80%94%20daqueles%20que%20transformam.jpg",
     alt: "Óculos solar na Óticas Olhar",
   },
   {
+    type: "image",
     src: "/galeria%20cole%C3%A7%C3%A3o/Dourada%2C%20elegante%20e%20cheia%20de%20personalidade.%20%F0%9F%98%8E%20A%20arma%C3%A7%C3%A3o%20de%20grau%20Ray-Ban%20%C3%A9%20perfeita%20para%20quem%20qu.jpg",
     alt: "Armação de grau da Óticas Olhar",
   },
-];
+] as const;
 
 export const metadata: Metadata = {
   title: "Óticas Olhar GLC | Links",
@@ -104,22 +106,24 @@ export default function InstagramBioPage() {
   return (
     <main className="instagram-page olhar-bio-page">
       <section className="instagram-hero" aria-labelledby="instagram-title">
-        <div className="instagram-shell">
-          <div className="instagram-brand-lockup">
+        <div className="instagram-brand-header">
+          <div className="instagram-shell instagram-brand-lockup">
             <Image
               src={site.logoIcon}
               alt="Logo da Óticas Olhar GLC"
-              width={92}
-              height={92}
+              width={116}
+              height={116}
               priority
               className="instagram-logo"
             />
             <div>
-              <h1 id="instagram-title">{site.name}</h1>
-              <p>Óculos de grau, solares e lentes em Araguaína.</p>
+              <h1 id="instagram-title">{site.shortName}</h1>
+              <p>Araguaína - TO</p>
             </div>
           </div>
+        </div>
 
+        <div className="instagram-shell instagram-hero-body">
           <p className="instagram-intro">
             Óculos de grau, solares e lentes com atendimento cuidadoso em
             Araguaína.
@@ -135,22 +139,33 @@ export default function InstagramBioPage() {
               {testimonialsSummary.rating.toFixed(1).replace(".", ",")} no
               Google
             </strong>
-            <span>
-              Clientes elogiam atendimento, conforto e variedade.
-            </span>
+            <span>Atendimento, conforto e variedade</span>
           </div>
 
           <div className="olhar-bio-showcase" aria-label="Mini vitrine">
-            {showcase.map((image, index) => (
-              <div className="olhar-bio-image" key={image.src}>
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes="(max-width: 720px) 30vw, 160px"
-                  priority={index === 0}
-                  loading={index === 0 ? undefined : "lazy"}
-                />
+            {showcase.map((item, index) => (
+              <div className="olhar-bio-image" key={item.src}>
+                {item.type === "video" ? (
+                  <video
+                    src={item.src}
+                    poster={item.poster}
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    preload="metadata"
+                    aria-label={item.alt}
+                  />
+                ) : (
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    sizes="(max-width: 720px) 30vw, 160px"
+                    priority={index === 1}
+                    loading={index === 1 ? undefined : "lazy"}
+                  />
+                )}
               </div>
             ))}
           </div>
@@ -187,7 +202,7 @@ export default function InstagramBioPage() {
         aria-labelledby="contact-title"
       >
         <div className="instagram-section-heading">
-          <h2 id="contact-title">Endereços</h2>
+          <h2 id="contact-title">Localização</h2>
         </div>
 
         <address className="instagram-contact-list">
@@ -210,16 +225,6 @@ export default function InstagramBioPage() {
             </a>
           ))}
         </address>
-      </section>
-
-      <section
-        className="instagram-testimonials"
-        aria-labelledby="instagram-testimonials-title"
-      >
-        <div className="instagram-shell instagram-section-heading">
-          <h2 id="instagram-testimonials-title">Quem comprou recomenda</h2>
-        </div>
-        <TestimonialsMobileMarquee testimonials={testimonials.slice(0, 6)} />
       </section>
 
       <footer className="instagram-footer instagram-shell">

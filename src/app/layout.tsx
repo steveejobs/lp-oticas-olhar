@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { localBusinessJsonLd, site } from "@/lib/site";
 import "./globals.css";
+import "./final-polish.css";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??

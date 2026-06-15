@@ -1,5 +1,4 @@
 export const WHATSAPP_PHONE = "5563992938550";
-export const LINA_WHATSAPP_PHONE = "5563991285918";
 
 export const whatsappMessages = {
   site:
@@ -12,7 +11,7 @@ export const whatsappMessages = {
   collections:
     "Olá! Vim pelo site da Óticas Olhar e quero ver opções de armações.",
   proposal:
-    "Olá! Vi a proposta da Óticas Olhar e quero aprovar a atualização do projeto.",
+    "Olá! Vi a proposta da Óticas Olhar e quero aprovar o próximo passo.",
 };
 
 export function buildWhatsAppUrl(message: string, phone = WHATSAPP_PHONE) {
@@ -26,6 +25,14 @@ export const brandColors = {
   graphite: "#151819",
   text: "#5C6668",
   champagne: "#D8C3A5",
+};
+
+export const media = {
+  heroVideo: "/galeria%20cole%C3%A7%C3%A3o/snapinsta.com.br-6a30638d9b709.mp4",
+  experienceVideo:
+    "/galeria%20cole%C3%A7%C3%A3o/snapinsta.com.br-6a306330ad7cc.mp4",
+  heroPoster:
+    "/galeria%20cole%C3%A7%C3%A3o/Um%20cl%C3%A1ssico%20que%20nunca%20erra-%20arma%C3%A7%C3%A3o%20quadrada%2C%20fosca%20e%20cheia%20de%20presen%C3%A7a.Discreto%20no%20brilho%2C%20marc.jpg",
 };
 
 export const site = {
@@ -64,7 +71,7 @@ export const site = {
   promiseNote:
     "Armações, óculos de sol e lentes com orientação próxima em Araguaína.",
   logoIcon: "/logo%20oticas%20olhar.jpg",
-  heroImage: "/galeria%20cole%C3%A7%C3%A3o/Um%20cl%C3%A1ssico%20que%20nunca%20erra-%20arma%C3%A7%C3%A3o%20quadrada%2C%20fosca%20e%20cheia%20de%20presen%C3%A7a.Discreto%20no%20brilho%2C%20marc.jpg",
+  heroImage: media.heroPoster,
   locations: [
     {
       id: "central",
@@ -80,22 +87,6 @@ export const site = {
       mapUrl: "https://share.google/rBTzAAs2hWYUg43Z2",
       mapsEmbedUrl:
         "https://www.google.com/maps?q=Av.%201%C2%BA%20de%20Janeiro%2C%201302%20-%20Qd%2038%2C%20Lt%2003%20-%20St.%20Central%2C%20Aragua%C3%ADna%20-%20TO%2C%2077803-140&output=embed",
-    },
-    {
-      id: "lina",
-      name: "Unidade Lina",
-      address:
-        "R. Profa. Maria Lina - St. Anhanguera, Araguaína - TO, 77818-540, Brasil",
-      streetAddress: "R. Profa. Maria Lina - St. Anhanguera",
-      neighborhood: "St. Anhanguera",
-      postalCode: "77818-540",
-      phoneDisplay: "(63) 99128-5918",
-      phoneE164: "+5563991285918",
-      whatsappPhone: LINA_WHATSAPP_PHONE,
-      mapUrl:
-        "https://www.google.com/maps/search/?api=1&query=%C3%93ticas%20Olhar%20R.%20Profa.%20Maria%20Lina%20St.%20Anhanguera%20Aragua%C3%ADna%20TO%2077818-540",
-      mapsEmbedUrl:
-        "https://www.google.com/maps?q=R.%20Profa.%20Maria%20Lina%20-%20St.%20Anhanguera%2C%20Aragua%C3%ADna%20-%20TO%2C%2077818-540&output=embed",
     },
   ],
 };

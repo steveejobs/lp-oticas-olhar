@@ -24,15 +24,16 @@ export function Header() {
           className="brand-mark"
           aria-label="Óticas Olhar GLC, voltar ao início"
         >
-          <Image
-            src={site.logoIcon}
-            width={82}
-            height={82}
-            alt=""
-            priority
-            aria-hidden="true"
-          />
-          <span>
+          <span className="brand-logo-tile" aria-hidden="true">
+            <Image
+              src={site.logoIcon}
+              width={108}
+              height={108}
+              alt=""
+              priority
+            />
+          </span>
+          <span className="brand-copy">
             <strong>{site.shortName}</strong>
             <small>Araguaína - TO</small>
           </span>
@@ -68,7 +69,7 @@ export function Header() {
             Traçar rota
           </a>
 
-          <a href={site.whatsappUrl} className="button button-red header-cta">
+          <a href={site.whatsappUrl} className="button header-cta">
             <MessageCircle size={17} aria-hidden="true" />
             Chamar no WhatsApp
           </a>
@@ -103,7 +104,7 @@ export function Header() {
             ))}
             <a
               href={site.whatsappUrl}
-              className="button button-red"
+              className="button header-cta"
               onClick={() => setIsOpen(false)}
             >
               <MessageCircle size={17} aria-hidden="true" />

@@ -14,8 +14,8 @@ export function FocusGallery() {
           <p className="eyebrow">Localização</p>
           <h2 id="trust-title">Visite a Óticas Olhar em Araguaína</h2>
           <p>
-            Duas unidades para atendimento, escolha de armações, óculos solares
-            e orientação para suas lentes.
+            Atendimento, escolha de armações, óculos solares e orientação para
+            suas lentes no endereço confirmado da Óticas Olhar.
           </p>
         </AnimatedReveal>
 

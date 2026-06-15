@@ -38,6 +38,14 @@ export function GoogleReviewsSection() {
         </AnimatedReveal>
       </div>
 
+      <ul className="sr-only">
+        {testimonials.map((testimonial) => (
+          <li key={`review-${testimonial.name}`}>
+            {testimonial.text} {testimonial.name}. Origem: {testimonial.source}.
+          </li>
+        ))}
+      </ul>
+
       <div className="site-shell testimonials-columns-wrap testimonials-desktop-marquee">
         <TestimonialsColumn
           testimonials={firstColumn}
