@@ -2,7 +2,14 @@ import type { Metadata, Viewport } from "next";
 import { localBusinessJsonLd, site } from "@/lib/site";
 import "./globals.css";
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "http://localhost:3000");
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Óticas Olhar GLC | Ótica em Araguaína - TO",
   description:
     "Óticas Olhar GLC em Araguaína: armações, óculos de sol, lentes e atendimento cuidadoso em um ambiente confortável.",
