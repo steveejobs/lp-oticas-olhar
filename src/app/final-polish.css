@@ -659,6 +659,7 @@
 
 .olhar-glasses-motion-section {
   position: relative;
+  display: none;
   isolation: isolate;
   overflow: hidden;
   padding: clamp(86px, 8.5vw, 132px) 0;
@@ -1205,10 +1206,6 @@
 
   .olhar-hero-media {
     min-height: 330px;
-  }
-
-  .olhar-glasses-motion-section {
-    display: none;
   }
 
   .olhar-experience-video-frame {
