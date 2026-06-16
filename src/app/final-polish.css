@@ -1208,61 +1208,7 @@
   }
 
   .olhar-glasses-motion-section {
-    padding: clamp(24px, 7vw, 40px) 0;
-    --glasses-frame-width: min(168vw, 680px);
-    --glasses-marquee-duration: 42s;
-    --glasses-marquee-font-size: clamp(1.55rem, 9vw, 2.25rem);
-    --glasses-marquee-letter-spacing: 0.018em;
-    --glasses-marquee-gap: clamp(1.7rem, 7vw, 2.8rem);
-    --glasses-marquee-y-primary: 59%;
-  }
-
-  .olhar-glasses-motion-viewport {
-    min-height: clamp(420px, 58svh, 540px);
-  }
-
-  .olhar-glasses-mobile-camera {
-    width: max-content;
-    animation: glassesMobileLensFocus var(--glasses-mobile-focus-duration)
-      cubic-bezier(0.62, 0, 0.24, 1) infinite;
-    will-change: transform;
-  }
-
-  .olhar-glasses-motion-stage {
-    width: var(--glasses-frame-width);
-    height: var(--glasses-frame-height);
-  }
-
-  .glasses-marquee-line {
-    animation-name: glassesMobileMarquee;
-  }
-
-  .glasses-marquee-layer--sharp,
-  .glasses-lens-clean-layer {
-    mask-position: 50% 50%;
-    mask-size: 100% 100%;
-    -webkit-mask-position: 50% 50%;
-    -webkit-mask-size: 100% 100%;
-  }
-
-  .glasses-marquee-layer--blur {
-    filter: blur(4.6px) contrast(0.78) saturate(0.84);
-  }
-
-  .olhar-glasses-motion-section.is-glasses-loaded .glasses-marquee-layer--blur {
-    opacity: 0.42;
-  }
-
-  .glasses-marquee-line--secondary {
     display: none;
-  }
-
-  .olhar-glasses-image {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: none;
   }
 
   .olhar-experience-video-frame {
