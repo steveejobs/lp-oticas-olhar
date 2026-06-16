@@ -86,7 +86,7 @@ export const site = {
   phoneDisplay: "(63) 99293-8550",
   phoneE164: "+5563992938550",
   instagram: "@oticasolharglc",
-  instagramUrl: "https://www.instagram.com/oticasolharglc/",
+  instagramUrl: "https://www.instagram.com/oticasolhararaguaina/",
   whatsappUrl: buildWhatsAppUrl(whatsappMessages.site),
   mapUrl: "#contato",
   mapsRouteUrl: "#contato",
