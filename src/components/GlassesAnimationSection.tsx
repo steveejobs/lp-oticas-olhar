@@ -9,17 +9,17 @@ const PRIMARY_PHRASE =
 const SECONDARY_PHRASE =
   "ATENDIMENTO CUIDADOSO \u2022 ARAGUA\u00cdNA \u2022 ARMA\u00c7\u00d5ES, LENTES E \u00d3CULOS DE SOL \u2022";
 
-const MARQUEE_DURATION = "34s";
-const MARQUEE_MOBILE_DURATION = "48s";
+const MARQUEE_DURATION = "56s";
+const MARQUEE_MOBILE_DURATION = "76s";
 const MARQUEE_INITIAL_X = "0%";
 const MARQUEE_FINAL_X = "-50%";
-const MARQUEE_FONT_SIZE = "clamp(4.1rem, 8.9vw, 8.65rem)";
-const MARQUEE_SECONDARY_FONT_SIZE = "clamp(1.15rem, 2.05vw, 2.08rem)";
-const MARQUEE_LETTER_SPACING = "0.055em";
-const MARQUEE_GAP = "clamp(2.8rem, 5.8vw, 5.6rem)";
-const MARQUEE_Y_PRIMARY = "46%";
-const MARQUEE_Y_SECONDARY = "64%";
-const MOBILE_FOCUS_DURATION = "19s";
+const MARQUEE_FONT_SIZE = "clamp(2.4rem, 5.2vw, 5rem)";
+const MARQUEE_SECONDARY_FONT_SIZE = "clamp(0.72rem, 1.08vw, 1.05rem)";
+const MARQUEE_LETTER_SPACING = "0.04em";
+const MARQUEE_GAP = "clamp(2.4rem, 5vw, 5rem)";
+const MARQUEE_Y_PRIMARY = "47%";
+const MARQUEE_Y_SECONDARY = "63%";
+const MOBILE_FOCUS_DURATION = "25s";
 
 type GlassesStyle = CSSProperties & Record<`--${string}`, string>;
 
@@ -113,7 +113,7 @@ export function GlassesAnimationSection() {
               alt="Armacao preta de oculos"
               width={1740}
               height={904}
-              sizes="(max-width: 760px) 168vw, (max-width: 1200px) 88vw, 1180px"
+              sizes="(max-width: 760px) 148vw, (max-width: 1200px) 76vw, 1040px"
               priority
               fetchPriority="high"
               className="olhar-glasses-image"

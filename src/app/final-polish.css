@@ -661,13 +661,15 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: clamp(74px, 8vw, 120px) 0;
-  --glasses-lens-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1740 904'%3E%3Cpath fill='white' d='M170 406C185 361 241 339 331 345C484 356 630 376 708 407C760 428 778 467 768 533C757 610 728 672 675 700C602 738 319 728 245 695C184 668 155 566 158 477C159 439 164 417 170 406Z M1017 407C1098 375 1252 352 1409 342C1504 337 1564 360 1577 413C1596 493 1555 641 1491 688C1422 737 1124 729 1046 697C988 673 964 589 966 510C967 458 981 423 1017 407Z'/%3E%3C/svg%3E");
+  padding: clamp(86px, 8.5vw, 132px) 0;
+  --glasses-frame-width: min(76vw, 1040px);
+  --glasses-frame-height: calc(var(--glasses-frame-width) * 904 / 1740);
+  --glasses-lens-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1740 904'%3E%3Cpath fill='white' d='M198 414C217 374 266 355 352 356C474 358 618 376 692 404C739 422 759 459 749 524C738 594 712 652 662 680C595 718 329 709 257 678C202 654 177 575 179 494C180 454 187 428 198 414Z M1049 405C1123 379 1262 361 1397 356C1482 353 1535 373 1554 420C1574 485 1541 623 1483 674C1418 715 1134 708 1062 681C1009 661 986 587 990 513C992 463 1009 421 1049 405Z'/%3E%3C/svg%3E");
   background:
     radial-gradient(
       ellipse at 50% 62%,
-      rgba(28, 27, 24, 0.06),
-      transparent 29rem
+      rgba(28, 27, 24, 0.045),
+      transparent 32rem
     ),
     radial-gradient(
       circle at 82% 20%,
@@ -697,7 +699,8 @@
 .olhar-glasses-motion-viewport {
   position: relative;
   display: grid;
-  min-height: clamp(500px, 58vw, 720px);
+  width: 100%;
+  min-height: clamp(520px, 50vw, 680px);
   place-items: center;
   overflow: hidden;
 }
@@ -711,8 +714,8 @@
 
 .olhar-glasses-motion-stage {
   position: relative;
-  width: min(88vw, 1180px);
-  aspect-ratio: 1740 / 904;
+  width: 100vw;
+  height: var(--glasses-frame-height);
   overflow: hidden;
   background: transparent;
   transform: translate3d(0, 0, 0);
@@ -720,16 +723,16 @@
 
 .olhar-glasses-motion-stage::after {
   position: absolute;
-  left: 9%;
-  right: 9%;
-  bottom: 9%;
+  left: 50%;
+  top: calc(50% + (var(--glasses-frame-height) * 0.27));
   z-index: 0;
-  height: 22%;
+  width: calc(var(--glasses-frame-width) * 0.82);
+  height: calc(var(--glasses-frame-height) * 0.16);
   content: "";
   border-radius: 50%;
   background: radial-gradient(ellipse, rgba(22, 21, 18, 0.12), transparent 68%);
-  filter: blur(30px);
-  transform: translate3d(0, 46%, 0);
+  filter: blur(28px);
+  transform: translate3d(-50%, 0, 0);
   pointer-events: none;
 }
 
@@ -749,8 +752,8 @@
 }
 
 .glasses-marquee-layer--blur {
-  color: rgba(24, 24, 21, 0.76);
-  filter: blur(3.6px) contrast(0.9) saturate(0.94);
+  color: rgba(24, 24, 21, 0.68);
+  filter: blur(3px) contrast(0.92) saturate(0.94);
 }
 
 .glasses-marquee-layer--sharp {
@@ -758,11 +761,13 @@
   color: rgba(8, 8, 7, 0.98);
   filter: contrast(1.18) saturate(1.03);
   mask-image: var(--glasses-lens-mask);
+  mask-position: 50% 50%;
   mask-repeat: no-repeat;
-  mask-size: 100% 100%;
+  mask-size: var(--glasses-frame-width) var(--glasses-frame-height);
   -webkit-mask-image: var(--glasses-lens-mask);
+  -webkit-mask-position: 50% 50%;
   -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
+  -webkit-mask-size: var(--glasses-frame-width) var(--glasses-frame-height);
 }
 
 .glasses-lens-clean-layer {
@@ -772,15 +777,17 @@
   pointer-events: none;
   transition: opacity 260ms var(--ease-premium) 80ms;
   mask-image: var(--glasses-lens-mask);
+  mask-position: 50% 50%;
   mask-repeat: no-repeat;
-  mask-size: 100% 100%;
+  mask-size: var(--glasses-frame-width) var(--glasses-frame-height);
   -webkit-mask-image: var(--glasses-lens-mask);
+  -webkit-mask-position: 50% 50%;
   -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
+  -webkit-mask-size: var(--glasses-frame-width) var(--glasses-frame-height);
 }
 
 .olhar-glasses-motion-section.is-glasses-loaded .glasses-marquee-layer--blur {
-  opacity: 0.5;
+  opacity: 0.42;
 }
 
 .olhar-glasses-motion-section.is-glasses-loaded .glasses-marquee-layer--sharp {
@@ -799,7 +806,7 @@
   color: currentColor;
   font-weight: 820;
   letter-spacing: var(--glasses-marquee-letter-spacing);
-  line-height: 0.9;
+  line-height: 0.92;
   text-transform: uppercase;
   white-space: nowrap;
   transform: translate3d(var(--glasses-marquee-initial-x), -50%, 0);
@@ -826,7 +833,7 @@
   color: rgba(25, 25, 22, 0.66);
   font-size: var(--glasses-marquee-secondary-font-size);
   font-weight: 760;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
 }
 
 .glasses-marquee-layer--sharp .glasses-marquee-line--secondary {
@@ -846,11 +853,16 @@
 
 .olhar-glasses-image {
   z-index: 4;
-  width: 100%;
-  height: 100%;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  left: 50%;
+  width: var(--glasses-frame-width);
+  height: var(--glasses-frame-height);
   object-fit: contain;
   mix-blend-mode: normal;
   pointer-events: none;
+  transform: translate3d(-50%, -50%, 0);
   user-select: none;
 }
 
@@ -1014,27 +1026,27 @@
 
 @keyframes glassesMobileLensFocus {
   0%,
-  13% {
-    transform: translate3d(0, 0, 0) scale(0.62);
+  16% {
+    transform: translate3d(0, 0, 0) scale(0.68);
   }
 
-  30%,
-  42% {
-    transform: translate3d(14%, -1.2%, 0) scale(1.02);
+  32%,
+  43% {
+    transform: translate3d(8%, -0.8%, 0) scale(0.86);
   }
 
-  53%,
-  61% {
-    transform: translate3d(0, 0, 0) scale(0.64);
+  55%,
+  64% {
+    transform: translate3d(0, 0, 0) scale(0.68);
   }
 
-  78%,
-  90% {
-    transform: translate3d(-28%, -1.2%, 0) scale(1.02);
+  80%,
+  91% {
+    transform: translate3d(-18%, -0.8%, 0) scale(0.86);
   }
 
   100% {
-    transform: translate3d(0, 0, 0) scale(0.62);
+    transform: translate3d(0, 0, 0) scale(0.68);
   }
 }
 
@@ -1117,12 +1129,12 @@
 }
 
 @media (max-width: 980px) {
-  .olhar-glasses-motion-viewport {
-    min-height: clamp(430px, 64vw, 580px);
+  .olhar-glasses-motion-section {
+    --glasses-frame-width: min(82vw, 840px);
   }
 
-  .olhar-glasses-motion-stage {
-    width: min(94vw, 900px);
+  .olhar-glasses-motion-viewport {
+    min-height: clamp(430px, 64vw, 580px);
   }
 
   .olhar-experience-layout,
@@ -1186,14 +1198,17 @@
   }
 
   .olhar-glasses-motion-section {
-    padding: clamp(42px, 10vw, 62px) 0;
+    padding: clamp(50px, 11vw, 70px) 0;
+    --glasses-frame-width: min(144vw, 610px);
     --glasses-marquee-duration: var(--glasses-marquee-mobile-duration);
-    --glasses-marquee-font-size: clamp(3.35rem, 20vw, 5.05rem);
-    --glasses-marquee-y-primary: 52%;
+    --glasses-marquee-font-size: clamp(1.55rem, 9vw, 2.25rem);
+    --glasses-marquee-letter-spacing: 0.03em;
+    --glasses-marquee-gap: clamp(1.7rem, 7vw, 2.8rem);
+    --glasses-marquee-y-primary: 51%;
   }
 
   .olhar-glasses-motion-viewport {
-    min-height: calc(100svh - 80px);
+    min-height: clamp(520px, 76svh, 670px);
   }
 
   .olhar-glasses-mobile-camera {
@@ -1204,19 +1219,36 @@
   }
 
   .olhar-glasses-motion-stage {
-    width: min(158vw, 680px);
+    width: var(--glasses-frame-width);
+    height: var(--glasses-frame-height);
+  }
+
+  .glasses-marquee-layer--sharp,
+  .glasses-lens-clean-layer {
+    mask-position: 50% 50%;
+    mask-size: 100% 100%;
+    -webkit-mask-position: 50% 50%;
+    -webkit-mask-size: 100% 100%;
   }
 
   .glasses-marquee-layer--blur {
-    filter: blur(2.25px) contrast(0.96) saturate(0.96);
+    filter: blur(1.85px) contrast(0.98) saturate(0.96);
   }
 
   .olhar-glasses-motion-section.is-glasses-loaded .glasses-marquee-layer--blur {
-    opacity: 0.46;
+    opacity: 0.38;
   }
 
   .glasses-marquee-line--secondary {
     display: none;
+  }
+
+  .olhar-glasses-image {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: none;
   }
 
   .olhar-experience-video-frame {
@@ -1302,11 +1334,15 @@
   }
 
   .olhar-glasses-motion-viewport {
-    min-height: calc(100svh - 80px);
+    min-height: clamp(510px, 74svh, 660px);
+  }
+
+  .olhar-glasses-motion-section {
+    --glasses-frame-width: min(142vw, 580px);
   }
 
   .olhar-glasses-motion-stage {
-    width: min(160vw, 680px);
+    width: var(--glasses-frame-width);
   }
 
   .olhar-experience-video-card {
