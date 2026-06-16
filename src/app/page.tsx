@@ -3,6 +3,7 @@ import { FinalCTA } from "@/components/FinalCTA";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { FocusGallery } from "@/components/FocusGallery";
 import { Footer } from "@/components/Footer";
+import { GlassesAnimationSection } from "@/components/GlassesAnimationSection";
 import { GoogleReviewsSection } from "@/components/GoogleReviewsSection";
 import { Header } from "@/components/Header";
 import { HeroProofBar } from "@/components/HeroProofBar";
@@ -17,6 +18,7 @@ export default function Home() {
       <Header />
       <main id="top">
         <LensHero />
+        <GlassesAnimationSection />
         <HeroProofBar />
         <RoutineLensSection />
         <ProcessSection />

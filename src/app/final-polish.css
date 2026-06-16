@@ -657,6 +657,308 @@
   animation: finalCtaShine 7s var(--ease-premium) infinite;
 }
 
+.olhar-glasses-motion-section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(48px, 6vw, 82px) 0;
+  background:
+    radial-gradient(
+      circle at 78% 22%,
+      rgba(85, 195, 200, 0.24),
+      transparent 22rem
+    ),
+    linear-gradient(135deg, #ffffff 0%, #effafb 48%, #fbfaf6 100%);
+}
+
+.olhar-glasses-motion-section::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(85, 195, 200, 0.08), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), transparent 48%);
+  pointer-events: none;
+}
+
+.olhar-glasses-motion-shell {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(320px, 1.12fr);
+  gap: clamp(26px, 5vw, 68px);
+  align-items: center;
+}
+
+.olhar-glasses-motion-copy {
+  max-width: 560px;
+}
+
+.olhar-glasses-motion-copy h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(2rem, 3.8vw, 4.1rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 1.02;
+}
+
+.olhar-glasses-motion-copy p:not(.eyebrow) {
+  margin: 20px 0 26px;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.05vw, 1.12rem);
+  line-height: 1.66;
+}
+
+.olhar-glasses-motion-stage {
+  position: relative;
+  min-height: clamp(340px, 38vw, 500px);
+  perspective: 1200px;
+}
+
+.olhar-glasses-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(92%, 560px);
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid rgba(21, 24, 25, 0.09);
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  box-shadow: 0 28px 80px rgba(21, 24, 25, 0.14);
+  transform: translate3d(-50%, -50%, 0) rotateX(0deg);
+  animation: glassesFloat 7s var(--ease-premium) infinite alternate;
+}
+
+.olhar-glasses-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: clamp(18px, 3vw, 34px);
+  transform: scale(1.03);
+}
+
+.olhar-glasses-shine {
+  position: absolute;
+  inset: -30% auto -30% -42%;
+  width: 32%;
+  transform: rotate(18deg) translate3d(-80%, 0, 0);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(85, 195, 200, 0.08),
+    rgba(255, 255, 255, 0.86),
+    rgba(85, 195, 200, 0.12),
+    transparent
+  );
+  animation: glassesShine 5.8s var(--ease-premium) infinite;
+  pointer-events: none;
+}
+
+.olhar-glasses-orbit {
+  position: absolute;
+  inset: 7% 2% 2% 7%;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.olhar-glasses-orbit span {
+  position: absolute;
+  border-radius: 999px;
+  background: rgba(85, 195, 200, 0.18);
+  filter: blur(1px);
+  animation: glassesDotDrift 8s var(--ease-premium) infinite alternate;
+}
+
+.olhar-glasses-orbit span:nth-child(1) {
+  left: 7%;
+  top: 18%;
+  width: 64px;
+  height: 64px;
+}
+
+.olhar-glasses-orbit span:nth-child(2) {
+  right: 6%;
+  top: 10%;
+  width: 34px;
+  height: 34px;
+  animation-delay: 800ms;
+}
+
+.olhar-glasses-orbit span:nth-child(3) {
+  right: 16%;
+  bottom: 4%;
+  width: 48px;
+  height: 48px;
+  background: rgba(216, 195, 165, 0.3);
+  animation-delay: 1.4s;
+}
+
+.olhar-glasses-tags {
+  position: absolute;
+  inset: auto 4% 4%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.olhar-glasses-tags span {
+  border: 1px solid rgba(85, 195, 200, 0.26);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #0c6f74;
+  font-size: 0.8rem;
+  font-weight: 780;
+  line-height: 1;
+  box-shadow: 0 10px 26px rgba(21, 24, 25, 0.07);
+  animation: glassesTagFloat 4.8s var(--ease-premium) infinite alternate;
+}
+
+.olhar-glasses-tags span:nth-child(2) {
+  animation-delay: 600ms;
+}
+
+.olhar-glasses-tags span:nth-child(3) {
+  animation-delay: 1.1s;
+}
+
+.instagram-photo-marquee {
+  position: relative;
+  min-height: 292px;
+  margin-top: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(21, 24, 25, 0.09);
+  border-radius: var(--radius-sm);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.92),
+      rgba(237, 250, 251, 0.9)
+    ),
+    #ffffff;
+  box-shadow: 0 18px 46px rgba(21, 24, 25, 0.1);
+  animation: instagramFadeUp 680ms var(--ease-premium) 150ms both;
+}
+
+.instagram-photo-marquee::before,
+.instagram-photo-marquee::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 4;
+  width: 38px;
+  content: "";
+  pointer-events: none;
+}
+
+.instagram-photo-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, #f3fbfb 12%, rgba(243, 251, 251, 0));
+}
+
+.instagram-photo-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, #f3fbfb 12%, rgba(243, 251, 251, 0));
+}
+
+.instagram-photo-row {
+  position: absolute;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+.instagram-photo-row.is-main {
+  top: 16px;
+  height: 188px;
+}
+
+.instagram-photo-row.is-small {
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  z-index: 3;
+  height: 76px;
+  border: 1px solid rgba(21, 24, 25, 0.08);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 14px 34px rgba(21, 24, 25, 0.12);
+  backdrop-filter: blur(14px);
+}
+
+.instagram-photo-track,
+.instagram-photo-set {
+  display: flex;
+  width: max-content;
+}
+
+.instagram-photo-track {
+  height: 100%;
+  will-change: transform;
+}
+
+.instagram-photo-row.is-main .instagram-photo-track {
+  animation: instagramGalleryMove 36s linear infinite;
+}
+
+.instagram-photo-row.is-small .instagram-photo-track {
+  animation: instagramGalleryMoveReverse 24s linear infinite;
+}
+
+.instagram-photo-set {
+  flex: 0 0 auto;
+  gap: 10px;
+  padding-right: 10px;
+}
+
+.instagram-photo-row.is-small .instagram-photo-set {
+  gap: 8px;
+  padding: 8px 8px 8px 0;
+}
+
+.instagram-photo-tile {
+  position: relative;
+  flex: 0 0 172px;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(21, 24, 25, 0.08);
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+}
+
+.instagram-photo-row.is-main .instagram-photo-tile:first-child {
+  margin-left: 16px;
+}
+
+.instagram-photo-row.is-small .instagram-photo-tile {
+  flex-basis: 82px;
+  border-radius: 7px;
+}
+
+.instagram-photo-tile img {
+  object-fit: cover;
+}
+
+.instagram-photo-tile.is-contain img {
+  object-fit: contain;
+  padding: 9px;
+}
+
+.instagram-testimonials {
+  margin-top: 18px;
+}
+
+.instagram-testimonials .testimonials-mobile-marquee {
+  width: 100%;
+  margin-top: 12px;
+}
+
+.instagram-testimonials .testimonial-column-card.is-compact {
+  border-color: rgba(85, 195, 200, 0.16);
+  background: rgba(255, 255, 255, 0.92);
+}
+
 @keyframes olharFadeUp {
   from {
     opacity: 0;
@@ -665,6 +967,76 @@
 
   to {
     opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes glassesFloat {
+  from {
+    transform: translate3d(-50%, -50%, 0) rotateX(1deg) rotateZ(-0.8deg);
+  }
+
+  to {
+    transform: translate3d(-50%, calc(-50% - 14px), 0) rotateX(0deg)
+      rotateZ(0.8deg);
+  }
+}
+
+@keyframes glassesShine {
+  0%,
+  34% {
+    opacity: 0;
+    transform: rotate(18deg) translate3d(-90%, 0, 0);
+  }
+
+  46%,
+  62% {
+    opacity: 0.9;
+  }
+
+  78%,
+  100% {
+    opacity: 0;
+    transform: rotate(18deg) translate3d(540%, 0, 0);
+  }
+}
+
+@keyframes glassesDotDrift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  to {
+    transform: translate3d(10px, -14px, 0) scale(1.08);
+  }
+}
+
+@keyframes glassesTagFloat {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, -7px, 0);
+  }
+}
+
+@keyframes instagramGalleryMove {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(calc(-50% - 5px), 0, 0);
+  }
+}
+
+@keyframes instagramGalleryMoveReverse {
+  from {
+    transform: translate3d(calc(-50% - 4px), 0, 0);
+  }
+
+  to {
     transform: translate3d(0, 0, 0);
   }
 }
@@ -728,6 +1100,14 @@
 }
 
 @media (max-width: 980px) {
+  .olhar-glasses-motion-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .olhar-glasses-motion-copy {
+    max-width: 680px;
+  }
+
   .olhar-experience-layout,
   .olhar-experience-list {
     grid-template-columns: 1fr;
@@ -788,6 +1168,22 @@
     min-height: 330px;
   }
 
+  .olhar-glasses-motion-section {
+    padding: 44px 0 50px;
+  }
+
+  .olhar-glasses-motion-stage {
+    min-height: 330px;
+  }
+
+  .olhar-glasses-card {
+    width: min(100%, 430px);
+  }
+
+  .olhar-glasses-tags {
+    bottom: 0;
+  }
+
   .olhar-experience-video-frame {
     max-height: min(72svh, 500px);
   }
@@ -824,6 +1220,18 @@
     min-height: 56px;
   }
 
+  .instagram-photo-marquee {
+    min-height: 276px;
+  }
+
+  .instagram-photo-row.is-main {
+    height: 178px;
+  }
+
+  .instagram-photo-tile {
+    flex-basis: 164px;
+  }
+
   .proposal-collage-card {
     width: 112px;
   }
@@ -858,6 +1266,19 @@
     min-height: 300px;
   }
 
+  .olhar-glasses-motion-copy h2 {
+    font-size: clamp(1.84rem, 9vw, 2.5rem);
+  }
+
+  .olhar-glasses-motion-stage {
+    min-height: 292px;
+  }
+
+  .olhar-glasses-tags span {
+    padding: 7px 10px;
+    font-size: 0.74rem;
+  }
+
   .olhar-experience-video-card {
     width: min(100%, 340px);
   }
@@ -872,6 +1293,30 @@
 
   .olhar-bio-image {
     min-height: 96px;
+  }
+
+  .instagram-photo-marquee {
+    min-height: 252px;
+  }
+
+  .instagram-photo-row.is-main {
+    top: 12px;
+    height: 162px;
+  }
+
+  .instagram-photo-row.is-small {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    height: 70px;
+  }
+
+  .instagram-photo-tile {
+    flex-basis: 148px;
+  }
+
+  .instagram-photo-row.is-small .instagram-photo-tile {
+    flex-basis: 76px;
   }
 
   .floating-whatsapp {
@@ -889,6 +1334,10 @@
   .olhar-hero-actions,
   .olhar-proof-strip,
   .olhar-hero-media video,
+  .olhar-glasses-card,
+  .olhar-glasses-shine,
+  .olhar-glasses-orbit span,
+  .olhar-glasses-tags span,
   .proposal-collage video,
   .lens-sweep,
   .proposal-final-panel::after {
@@ -905,5 +1354,12 @@
   .floating-whatsapp,
   .final-panel {
     transition: none;
+  }
+
+  .instagram-photo-row.is-main .instagram-photo-track,
+  .instagram-photo-row.is-small .instagram-photo-track {
+    animation: none;
+    transform: none;
+    will-change: auto;
   }
 }

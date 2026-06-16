@@ -9,12 +9,16 @@ import {
   Star,
   Sun,
 } from "lucide-react";
-import { buildWhatsAppUrl, media, site, testimonialsSummary } from "@/lib/site";
+import { TestimonialsMobileMarquee } from "@/components/ui/testimonials-columns-1";
+import { testimonials } from "@/data/testimonials";
+import { buildWhatsAppUrl, site, testimonialsSummary } from "@/lib/site";
 
 const links = [
   {
     label: "Quero atendimento no WhatsApp",
-    href: buildWhatsAppUrl("Olá! Vim pela bio da Óticas Olhar e quero atendimento."),
+    href: buildWhatsAppUrl(
+      "Olá! Vim pela bio da Óticas Olhar e quero atendimento.",
+    ),
     ariaLabel: "Chamar a Óticas Olhar no WhatsApp",
     icon: MessageCircle,
     variant: "primary",
@@ -60,22 +64,42 @@ const links = [
   },
 ] as const;
 
-const showcase = [
+const galleryMain = [
   {
-    type: "video",
-    src: media.experienceVideo,
-    poster: media.heroPoster,
-    alt: "Vídeo da vitrine da Óticas Olhar",
-  },
-  {
-    type: "image",
     src: "/galeria%20cole%C3%A7%C3%A3o/Maximalista%20na%20medida%20certa.%20%F0%9F%98%8E%E2%9C%A8Esse%20modelo%20entrega%20presen%C3%A7a%20de%20longe%20%E2%80%94%20daqueles%20que%20transformam.jpg",
     alt: "Óculos solar na Óticas Olhar",
   },
   {
-    type: "image",
     src: "/galeria%20cole%C3%A7%C3%A3o/Dourada%2C%20elegante%20e%20cheia%20de%20personalidade.%20%F0%9F%98%8E%20A%20arma%C3%A7%C3%A3o%20de%20grau%20Ray-Ban%20%C3%A9%20perfeita%20para%20quem%20qu.jpg",
-    alt: "Armação de grau da Óticas Olhar",
+    alt: "Armação dourada na Óticas Olhar",
+  },
+  {
+    src: "/galeria%20cole%C3%A7%C3%A3o/Arredondar%20o%20olhar%2C%20ampliar%20a%20criatividade%20%E2%9C%A8%F0%9F%95%B6%EF%B8%8FAs%20arma%C3%A7%C3%B5es%20redondas%20em%20acetato%20n%C3%A3o%20s%C3%A3o%20s%C3%B3%20tend%C3%AAn.jpg",
+    alt: "Armação redonda em acetato",
+  },
+  {
+    src: "/galeria%20cole%C3%A7%C3%A3o/Quebrando%20o%20padr%C3%A3o%20da%20melhor%20forma.O%20modelo%20Cavaleira%20azul%20degrad%C3%AA%20traz%20a%20personalidade%20das%20arma.jpg",
+    alt: "Armação azul degradê",
+  },
+] as const;
+
+const gallerySmall = [
+  {
+    src: "/oculos.jpg",
+    alt: "Armação preta de óculos",
+    contain: true,
+  },
+  {
+    src: "/galeria%20cole%C3%A7%C3%A3o/Um%20cl%C3%A1ssico%20que%20nunca%20erra-%20arma%C3%A7%C3%A3o%20quadrada%2C%20fosca%20e%20cheia%20de%20presen%C3%A7a.Discreto%20no%20brilho%2C%20marc.jpg",
+    alt: "Armação quadrada fosca",
+  },
+  {
+    src: "/galeria%20cole%C3%A7%C3%A3o/Maximalista%20na%20medida%20certa.%20%F0%9F%98%8E%E2%9C%A8Esse%20modelo%20entrega%20presen%C3%A7a%20de%20longe%20%E2%80%94%20daqueles%20que%20transformam%20(2).jpg",
+    alt: "Óculos solar em destaque",
+  },
+  {
+    src: "/galeria%20cole%C3%A7%C3%A3o/Dourada%2C%20elegante%20e%20cheia%20de%20personalidade.%20%F0%9F%98%8E%20A%20arma%C3%A7%C3%A3o%20de%20grau%20Ray-Ban%20%C3%A9%20perfeita%20para%20quem%20qu%20(1).jpg",
+    alt: "Detalhe de armação de grau",
   },
 ] as const;
 
@@ -142,33 +166,7 @@ export default function InstagramBioPage() {
             <span>Atendimento, conforto e variedade</span>
           </div>
 
-          <div className="olhar-bio-showcase" aria-label="Mini vitrine">
-            {showcase.map((item, index) => (
-              <div className="olhar-bio-image" key={item.src}>
-                {item.type === "video" ? (
-                  <video
-                    src={item.src}
-                    poster={item.poster}
-                    muted
-                    loop
-                    playsInline
-                    autoPlay
-                    preload="metadata"
-                    aria-label={item.alt}
-                  />
-                ) : (
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    sizes="(max-width: 720px) 30vw, 160px"
-                    priority={index === 1}
-                    loading={index === 1 ? undefined : "lazy"}
-                  />
-                )}
-              </div>
-            ))}
-          </div>
+          <InstagramGalleryMarquee />
         </div>
       </section>
 
@@ -194,6 +192,16 @@ export default function InstagramBioPage() {
             </a>
           );
         })}
+      </section>
+
+      <section
+        className="instagram-testimonials instagram-shell"
+        aria-labelledby="instagram-testimonials-title"
+      >
+        <div className="instagram-section-heading">
+          <h2 id="instagram-testimonials-title">Quem compra, recomenda</h2>
+        </div>
+        <TestimonialsMobileMarquee testimonials={testimonials} />
       </section>
 
       <section
@@ -241,5 +249,68 @@ export default function InstagramBioPage() {
         <span>Falar no WhatsApp</span>
       </a>
     </main>
+  );
+}
+
+function InstagramGalleryMarquee() {
+  return (
+    <div className="instagram-photo-marquee" aria-label="Galeria de armações">
+      <div className="instagram-photo-row is-main">
+        <div className="instagram-photo-track">
+          {Array.from({ length: 2 }).map((_, setIndex) => (
+            <div
+              className="instagram-photo-set"
+              key={`main-gallery-set-${setIndex}`}
+              aria-hidden={setIndex > 0}
+            >
+              {galleryMain.map((item, index) => (
+                <div
+                  className="instagram-photo-tile"
+                  key={`${item.src}-${setIndex}`}
+                >
+                  <Image
+                    src={item.src}
+                    alt={setIndex === 0 ? item.alt : ""}
+                    fill
+                    sizes="(max-width: 720px) 54vw, 220px"
+                    priority={setIndex === 0 && index < 2}
+                    loading={setIndex === 0 && index < 2 ? undefined : "lazy"}
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="instagram-photo-row is-small">
+        <div className="instagram-photo-track">
+          {Array.from({ length: 2 }).map((_, setIndex) => (
+            <div
+              className="instagram-photo-set"
+              key={`small-gallery-set-${setIndex}`}
+              aria-hidden={setIndex > 0}
+            >
+              {gallerySmall.map((item) => (
+                <div
+                  className={`instagram-photo-tile${
+                    "contain" in item && item.contain ? " is-contain" : ""
+                  }`}
+                  key={`${item.src}-${setIndex}`}
+                >
+                  <Image
+                    src={item.src}
+                    alt={setIndex === 0 ? item.alt : ""}
+                    fill
+                    sizes="(max-width: 720px) 30vw, 132px"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
