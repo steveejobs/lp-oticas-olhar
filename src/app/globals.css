@@ -15,9 +15,11 @@
   --yellow-soft: rgba(216, 195, 165, 0.24);
   --star-yellow: #ffc400;
   --star-yellow-shadow: rgba(160, 111, 0, 0.28);
-  --red: #55c3c8;
+  --brand-turquoise: #54c4d0;
+  --brand-turquoise-rgb: 84, 196, 208;
+  --red: var(--brand-turquoise);
   --red-dark: #2f9da3;
-  --optic-blue: #55c3c8;
+  --optic-blue: var(--brand-turquoise);
   --optic-green: #7acfd3;
   --white: #ffffff;
   --radius-sm: 8px;

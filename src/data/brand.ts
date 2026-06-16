@@ -19,7 +19,7 @@ export function buildWhatsAppUrl(message: string, phone = WHATSAPP_PHONE) {
 }
 
 export const brandColors = {
-  turquoise: "#55C3C8",
+  turquoise: "#54C4D0",
   offWhite: "#F8F5EF",
   white: "#FFFFFF",
   graphite: "#151819",

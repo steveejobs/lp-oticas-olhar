@@ -9,8 +9,8 @@ const gallerySections = [
     title: "Modelos de grau com presença e conforto.",
     text: "Uma curadoria para experimentar com calma e encontrar a armação que conversa com seu rosto, sua rotina e seu estilo.",
     type: "image",
-    src: "/galeria%20cole%C3%A7%C3%A3o/Dourada%2C%20elegante%20e%20cheia%20de%20personalidade.%20%F0%9F%98%8E%20A%20arma%C3%A7%C3%A3o%20de%20grau%20Ray-Ban%20%C3%A9%20perfeita%20para%20quem%20qu.jpg",
-    alt: "Armação de grau dourada da Óticas Olhar",
+    src: "/galeria%20cole%C3%A7%C3%A3o/Um%20cl%C3%A1ssico%20que%20nunca%20erra-%20arma%C3%A7%C3%A3o%20quadrada%2C%20fosca%20e%20cheia%20de%20presen%C3%A7a.Discreto%20no%20brilho%2C%20marc%20(1).jpg",
+    alt: "Armação de grau azul em modelo masculino na Óticas Olhar",
   },
   {
     eyebrow: "Óculos de sol",

@@ -2,7 +2,7 @@
 .site-header,
 .site-header.is-scrolled {
   border-color: rgba(255, 255, 255, 0.24);
-  background: rgba(85, 195, 200, 0.96);
+  background: rgba(var(--brand-turquoise-rgb), 0.96);
   box-shadow: 0 14px 42px rgba(21, 24, 25, 0.12);
   backdrop-filter: blur(14px);
 }
@@ -79,18 +79,18 @@
 .header-cta {
   border-color: rgba(255, 255, 255, 0.92);
   background: var(--white);
-  color: #0c6f74;
+  color: var(--red-dark);
   box-shadow: 0 12px 28px rgba(21, 24, 25, 0.14);
 }
 
 .header-cta:hover {
   background: #f7ffff;
-  color: #074f53;
+  color: #257f84;
 }
 
 .mobile-menu {
   border-top-color: rgba(255, 255, 255, 0.28);
-  background: rgba(85, 195, 200, 0.98);
+  background: rgba(var(--brand-turquoise-rgb), 0.98);
 }
 
 .mobile-menu a:not(.button) {
@@ -98,15 +98,15 @@
 }
 
 .button-red {
-  background: #55c3c8;
+  background: var(--red);
   color: var(--white);
-  box-shadow: 0 14px 34px rgba(85, 195, 200, 0.25);
+  box-shadow: 0 14px 34px rgba(var(--brand-turquoise-rgb), 0.25);
 }
 
 .button-red:hover {
-  background: #35aeb4;
+  background: var(--red-dark);
   color: var(--white);
-  box-shadow: 0 18px 44px rgba(85, 195, 200, 0.28);
+  box-shadow: 0 18px 44px rgba(var(--brand-turquoise-rgb), 0.28);
 }
 
 .olhar-hero {
@@ -419,6 +419,10 @@
 .olhar-gallery-panel-media img {
   position: absolute;
   inset: 0;
+}
+
+.olhar-gallery-panel:first-child .olhar-gallery-panel-media img {
+  object-position: 50% 38%;
 }
 
 .olhar-gallery-panel:hover .olhar-gallery-panel-media img,
@@ -737,7 +741,7 @@
 @media (max-width: 760px) {
   .site-header,
   .site-header.is-scrolled {
-    background: #55c3c8;
+    background: var(--red);
   }
 
   .header-inner {
