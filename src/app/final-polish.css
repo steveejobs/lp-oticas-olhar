@@ -1050,6 +1050,16 @@
   }
 }
 
+@keyframes glassesMobileMarquee {
+  from {
+    transform: translate3d(170vw, -50%, 0);
+  }
+
+  to {
+    transform: translate3d(calc(-100% - 170vw), -50%, 0);
+  }
+}
+
 @keyframes instagramGalleryMove {
   from {
     transform: translate3d(0, 0, 0);
@@ -1198,17 +1208,17 @@
   }
 
   .olhar-glasses-motion-section {
-    padding: clamp(50px, 11vw, 70px) 0;
-    --glasses-frame-width: min(158vw, 660px);
-    --glasses-marquee-duration: var(--glasses-marquee-mobile-duration);
+    padding: clamp(24px, 7vw, 40px) 0;
+    --glasses-frame-width: min(168vw, 680px);
+    --glasses-marquee-duration: 42s;
     --glasses-marquee-font-size: clamp(1.55rem, 9vw, 2.25rem);
     --glasses-marquee-letter-spacing: 0.018em;
     --glasses-marquee-gap: clamp(1.7rem, 7vw, 2.8rem);
-    --glasses-marquee-y-primary: 58%;
+    --glasses-marquee-y-primary: 59%;
   }
 
   .olhar-glasses-motion-viewport {
-    min-height: clamp(520px, 76svh, 670px);
+    min-height: clamp(420px, 58svh, 540px);
   }
 
   .olhar-glasses-mobile-camera {
@@ -1221,6 +1231,10 @@
   .olhar-glasses-motion-stage {
     width: var(--glasses-frame-width);
     height: var(--glasses-frame-height);
+  }
+
+  .glasses-marquee-line {
+    animation-name: glassesMobileMarquee;
   }
 
   .glasses-marquee-layer--sharp,
@@ -1334,11 +1348,11 @@
   }
 
   .olhar-glasses-motion-viewport {
-    min-height: clamp(510px, 74svh, 660px);
+    min-height: clamp(410px, 56svh, 520px);
   }
 
   .olhar-glasses-motion-section {
-    --glasses-frame-width: min(156vw, 650px);
+    --glasses-frame-width: min(166vw, 650px);
   }
 
   .olhar-glasses-motion-stage {
