@@ -255,7 +255,10 @@ export default function ProposalPage() {
                 {testimonialsSummary.rating.toFixed(1).replace(".", ",")} no
                 Google
               </strong>
-              <span>{testimonialsSummary.total} avaliações de clientes</span>
+              <span>
+                {testimonialsSummary.total} avaliações · 2 unidades em
+                Araguaína
+              </span>
             </div>
             <div className="proposal-showcase-main proposal-collage">
               <video

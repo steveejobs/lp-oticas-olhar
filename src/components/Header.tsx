@@ -61,12 +61,10 @@ export function Header() {
           <a
             href={site.mapsRouteUrl}
             className="button header-route"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Traçar rota até a Óticas Olhar no Google Maps"
+            aria-label="Ver rotas das unidades da Óticas Olhar"
           >
             <Navigation size={17} aria-hidden="true" />
-            Traçar rota
+            Ver rotas
           </a>
 
           <a href={site.whatsappUrl} className="button header-cta">
@@ -124,13 +122,11 @@ export function Header() {
             <a
               href={site.mapsRouteUrl}
               className="button header-route mobile-route"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Traçar rota até a Óticas Olhar no Google Maps"
+              aria-label="Ver rotas das unidades da Óticas Olhar"
               onClick={() => setIsOpen(false)}
             >
               <Navigation size={17} aria-hidden="true" />
-              Traçar rota
+              Ver rotas
             </a>
           </nav>
         </div>

@@ -13,10 +13,7 @@ export function FocusGallery() {
         <AnimatedReveal className="section-heading compact location-heading">
           <p className="eyebrow">Localização</p>
           <h2 id="trust-title">Visite a Óticas Olhar em Araguaína</h2>
-          <p>
-            Atendimento, escolha de armações, óculos solares e orientação para
-            suas lentes no endereço confirmado da Óticas Olhar.
-          </p>
+          <p>Escolha a unidade mais próxima e trace sua rota.</p>
         </AnimatedReveal>
 
         <div className="olhar-location-grid">
@@ -26,8 +23,8 @@ export function FocusGallery() {
               key={location.id}
               delay={index * 0.06}
             >
-              <span className="location-seal">{location.name}</span>
-              <h3>{location.neighborhood}</h3>
+              <span className="location-seal">Unidade {index + 1}</span>
+              <h3>{location.name}</h3>
               <address>
                 <MapPin size={18} aria-hidden="true" />
                 <span>{location.address}</span>
@@ -45,7 +42,7 @@ export function FocusGallery() {
                   aria-label={`Traçar rota até a ${location.name} da Óticas Olhar`}
                 >
                   <Navigation size={17} aria-hidden="true" />
-                  Traçar rota
+                  Traçar rota para {location.name}
                 </a>
                 <a
                   href={buildWhatsAppUrl(
@@ -68,7 +65,7 @@ export function FocusGallery() {
         <div className="location-map olhar-location-map">
           <iframe
             src={site.locations[0].mapsEmbedUrl}
-            title="Mapa da unidade Central da Óticas Olhar em Araguaína"
+            title="Mapa da Matriz Lina da Óticas Olhar em Araguaína"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             allowFullScreen

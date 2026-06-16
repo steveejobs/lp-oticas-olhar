@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 const PRIMARY_PHRASE =
-  "\u00d3TICAS OLHAR GLC \u2022 CLAREZA PARA SUA ROTINA \u2022";
+  "VER COM CLAREZA. ESCOLHER COM SEGURAN\u00c7A. \u2022";
 const SECONDARY_PHRASE =
   "ATENDIMENTO CUIDADOSO \u2022 ARAGUA\u00cdNA \u2022 ARMA\u00c7\u00d5ES, LENTES E \u00d3CULOS DE SOL \u2022";
 
@@ -13,12 +13,12 @@ const MARQUEE_DURATION = "56s";
 const MARQUEE_MOBILE_DURATION = "76s";
 const MARQUEE_INITIAL_X = "0%";
 const MARQUEE_FINAL_X = "-50%";
-const MARQUEE_FONT_SIZE = "clamp(2.4rem, 5.2vw, 5rem)";
+const MARQUEE_FONT_SIZE = "clamp(2.35rem, 5vw, 4.85rem)";
 const MARQUEE_SECONDARY_FONT_SIZE = "clamp(0.72rem, 1.08vw, 1.05rem)";
-const MARQUEE_LETTER_SPACING = "0.04em";
+const MARQUEE_LETTER_SPACING = "0.026em";
 const MARQUEE_GAP = "clamp(2.4rem, 5vw, 5rem)";
-const MARQUEE_Y_PRIMARY = "47%";
-const MARQUEE_Y_SECONDARY = "63%";
+const MARQUEE_Y_PRIMARY = "53%";
+const MARQUEE_Y_SECONDARY = "68%";
 const MOBILE_FOCUS_DURATION = "25s";
 
 type GlassesStyle = CSSProperties & Record<`--${string}`, string>;
@@ -113,7 +113,7 @@ export function GlassesAnimationSection() {
               alt="Armacao preta de oculos"
               width={1740}
               height={904}
-              sizes="(max-width: 760px) 148vw, (max-width: 1200px) 76vw, 1040px"
+              sizes="(max-width: 760px) 158vw, (max-width: 1200px) 76vw, 1040px"
               priority
               fetchPriority="high"
               className="olhar-glasses-image"

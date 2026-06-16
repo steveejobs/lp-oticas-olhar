@@ -1,51 +1,44 @@
 import {
   buildWhatsAppUrl,
   site,
-  testimonialsSummary,
   whatsappMessages,
 } from "@/data/brand";
 
 export {
   WHATSAPP_PHONE,
+  brandName,
   brandColors,
   buildWhatsAppUrl,
   media,
   navItems,
+  rating,
+  reviewCount,
+  reviewLabel,
   site,
+  socialProofText,
   testimonials,
   testimonialsSummary,
+  units,
   whatsappMessages,
 } from "@/data/brand";
 
 export const DEFAULT_WHATSAPP_MESSAGE = whatsappMessages.site;
 
-export const localBusinessJsonLd = {
+export const localBusinessJsonLd = site.locations.map((location) => ({
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "Optician"],
+  "@type": "OpticalStore",
   name: site.name,
-  legalName: site.legalName,
+  alternateName: `${site.shortName} - ${location.name}`,
+  branchCode: location.name,
   image: site.logoIcon,
-  telephone: site.phoneE164,
-  sameAs: [site.mapUrl, site.instagramUrl],
-  department: site.locations.map((location) => ({
-    "@type": "LocalBusiness",
-    name: `${site.shortName} - ${location.name}`,
-    telephone: location.phoneE164,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: location.streetAddress,
-      addressLocality: site.addressLocality,
-      addressRegion: site.addressRegion,
-      postalCode: location.postalCode,
-      addressCountry: site.postalCountry,
-    },
-  })),
+  telephone: location.phoneE164,
+  sameAs: [location.mapUrl, site.instagramUrl],
   address: {
     "@type": "PostalAddress",
-    streetAddress: site.streetAddress,
+    streetAddress: location.streetAddress,
     addressLocality: site.addressLocality,
     addressRegion: site.addressRegion,
-    postalCode: site.postalCode,
+    postalCode: location.postalCode,
     addressCountry: site.postalCountry,
   },
   areaServed: {
@@ -54,14 +47,19 @@ export const localBusinessJsonLd = {
   },
   aggregateRating: {
     "@type": "AggregateRating",
-    ratingValue: testimonialsSummary.rating,
-    reviewCount: testimonialsSummary.total,
+    ratingValue: "4.8",
+    reviewCount: "105",
   },
   url: "/",
   priceRange: "$$",
   description:
-    "Óticas Olhar GLC em Araguaína: armações, óculos de sol, lentes e atendimento cuidadoso em um ambiente confortável.",
-};
+    "Óticas Olhar GLC em Araguaína: armações, óculos de sol, lentes e atendimento cuidadoso em duas unidades.",
+  branchOf: {
+    "@type": "Organization",
+    name: site.name,
+    legalName: site.legalName,
+  },
+}));
 
 export function whatsappFor(message: string) {
   return buildWhatsAppUrl(message);

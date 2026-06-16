@@ -1,4 +1,4 @@
-import { testimonials, testimonialsSummary } from "@/data/brand";
+import { testimonials, testimonialsSummary, units } from "@/data/brand";
 
 export type GoogleReview = {
   authorName: string;
@@ -19,7 +19,7 @@ export type GoogleReviewsData = {
 export const fallbackGoogleReviews: GoogleReviewsData = {
   rating: testimonialsSummary.rating,
   totalRatings: testimonialsSummary.total,
-  placeUrl: "https://share.google/rBTzAAs2hWYUg43Z2",
+  placeUrl: units[0].routeUrl,
   isFallback: true,
   reviews: testimonials.slice(0, 5).map((testimonial) => ({
     authorName: testimonial.name,

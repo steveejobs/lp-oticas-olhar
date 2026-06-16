@@ -14,7 +14,9 @@ const faqs = [
   },
   {
     question: "Onde fica a Óticas Olhar?",
-    answer: `A Óticas Olhar fica na ${site.locations[0].address}.`,
+    answer: `A Óticas Olhar tem duas unidades em Araguaína: ${site.locations
+      .map((location) => `${location.name}, ${location.address}`)
+      .join("; ")}.`,
   },
   {
     question: "Posso chamar pelo WhatsApp antes de ir?",

@@ -7,26 +7,33 @@ import {
   MapPin,
   MessageCircle,
   Star,
-  Sun,
 } from "lucide-react";
 import { TestimonialsMobileMarquee } from "@/components/ui/testimonials-columns-1";
 import { testimonials } from "@/data/testimonials";
-import { buildWhatsAppUrl, site, testimonialsSummary } from "@/lib/site";
+import { buildWhatsAppUrl, site, whatsappMessages } from "@/lib/site";
+
+const matrizLina = site.locations[0];
+const unidadeCentral = site.locations[1];
 
 const links = [
   {
-    label: "Quero atendimento no WhatsApp",
-    href: buildWhatsAppUrl(
-      "Olá! Vim pela bio da Óticas Olhar e quero atendimento.",
-    ),
+    label: "Chamar no WhatsApp",
+    href: buildWhatsAppUrl(whatsappMessages.site),
     ariaLabel: "Chamar a Óticas Olhar no WhatsApp",
     icon: MessageCircle,
     variant: "primary",
   },
   {
-    label: "Ver localização",
-    href: site.mapsRouteUrl,
-    ariaLabel: "Abrir rota para a Óticas Olhar",
+    label: "Rota para Matriz Lina",
+    href: matrizLina.mapUrl,
+    ariaLabel: "Abrir rota para Matriz Lina",
+    icon: MapPin,
+    variant: "light",
+  },
+  {
+    label: "Rota para Unidade Central",
+    href: unidadeCentral.mapUrl,
+    ariaLabel: "Abrir rota para Unidade Central",
     icon: MapPin,
     variant: "light",
   },
@@ -40,15 +47,6 @@ const links = [
     variant: "light",
   },
   {
-    label: "Ver óculos de sol",
-    href: buildWhatsAppUrl(
-      "Olá! Vim pela bio da Óticas Olhar e quero conhecer opções de óculos de sol.",
-    ),
-    ariaLabel: "Conhecer óculos de sol pelo WhatsApp",
-    icon: Sun,
-    variant: "light",
-  },
-  {
     label: "Ver avaliações",
     href: "/#avaliacoes",
     ariaLabel: "Ver avaliações no site",
@@ -56,7 +54,7 @@ const links = [
     variant: "ghost",
   },
   {
-    label: "Acessar site completo",
+    label: "Site completo",
     href: "/",
     ariaLabel: "Acessar site completo da Óticas Olhar",
     icon: Globe2,
@@ -101,14 +99,14 @@ const gallerySmall = [
 export const metadata: Metadata = {
   title: "Óticas Olhar GLC | Links",
   description:
-    "Óculos de grau, solares e lentes com atendimento cuidadoso em Araguaína.",
+    "Óticas Olhar GLC em Araguaína: WhatsApp, rotas das duas unidades, armações e avaliações.",
   alternates: {
     canonical: "/instagram",
   },
   openGraph: {
     title: "Óticas Olhar GLC | Links",
     description:
-      "Óculos de grau, solares e lentes com atendimento cuidadoso em Araguaína.",
+      "Óticas Olhar GLC em Araguaína: WhatsApp, rotas das duas unidades, armações e avaliações.",
     type: "website",
     images: [
       {
@@ -149,16 +147,7 @@ export default function InstagramBioPage() {
           </p>
 
           <div className="instagram-rating-card olhar-bio-proof">
-            <span className="instagram-rating-stars" aria-hidden="true">
-              {Array.from({ length: 5 }).map((_, index) => (
-                <Star key={index} size={15} fill="currentColor" />
-              ))}
-            </span>
-            <strong>
-              {testimonialsSummary.rating.toFixed(1).replace(".", ",")} no
-              Google
-            </strong>
-            <span>Atendimento, conforto e variedade</span>
+            <strong>{site.socialProofText}</strong>
           </div>
 
           <InstagramGalleryMarquee />

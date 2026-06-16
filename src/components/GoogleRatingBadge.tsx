@@ -10,7 +10,7 @@ type GoogleRatingBadgeProps = {
 };
 
 const defaultRating = "4,8";
-const defaultReviews = "21 avaliações";
+const defaultReviews = "105 avaliações";
 const stars = "★★★★★";
 
 function normalizeReviews(reviews: string) {
@@ -27,7 +27,7 @@ export function GoogleRatingBadge({
   href,
 }: GoogleRatingBadgeProps) {
   const normalizedReviews = normalizeReviews(reviews);
-  const accessibleLabel = `Avaliação ${rating} de 5 no Google, com ${normalizedReviews}`;
+  const accessibleLabel = `Avaliação ${rating} de 5 no Google, com ${normalizedReviews} e 2 unidades em Araguaína`;
   const classes = [
     "google-rating-badge",
     `google-rating-badge-${variant}`,
@@ -46,20 +46,21 @@ export function GoogleRatingBadge({
       </span>
       {variant === "inline" ? (
         <span className="google-rating-line">
-          <strong>{rating}</strong> no Google por clientes de Araguaína
+          <strong>{rating}</strong> no Google · {normalizedReviews} · 2
+          unidades em Araguaína
         </span>
       ) : (
         <span className="google-rating-main">
           <strong>{rating}</strong>
           <span>
             {variant === "compact"
-              ? `no Google · ${normalizedReviews}`
+              ? `no Google · ${normalizedReviews} · 2 unidades em Araguaína`
               : normalizedReviews}
           </span>
         </span>
       )}
       {variant === "card" ? (
-        <small>Avaliação média no Google</small>
+        <small>2 unidades em Araguaína</small>
       ) : null}
     </>
   );

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Óticas Olhar GLC | Ótica em Araguaína - TO",
   description:
-    "Óticas Olhar GLC em Araguaína: armações, óculos de sol, lentes e atendimento cuidadoso em um ambiente confortável.",
+    "Óticas Olhar GLC em Araguaína: armações, óculos de sol, lentes e atendimento cuidadoso em duas unidades.",
   keywords: [
     "Óticas Olhar GLC",
     "ótica em Araguaína",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Óticas Olhar GLC | Ótica em Araguaína - TO",
     description:
-      "Armações, óculos de sol, lentes e atendimento cuidadoso em um ambiente confortável.",
+      "Óticas Olhar GLC em Araguaína: armações, óculos de sol, lentes e atendimento cuidadoso em duas unidades.",
     locale: "pt_BR",
     type: "website",
     images: [

@@ -1,8 +1,7 @@
 export const WHATSAPP_PHONE = "5563992938550";
 
 export const whatsappMessages = {
-  site:
-    "Olá! Vim pelo site da Óticas Olhar e quero atendimento para escolher meus óculos.",
+  site: "Olá! Vim pelo site da Óticas Olhar e quero atendimento.",
   bio: "Olá! Vim pela bio da Óticas Olhar e quero atendimento.",
   frames:
     "Olá! Vim pela bio da Óticas Olhar e quero conhecer opções de armações.",
@@ -17,6 +16,40 @@ export const whatsappMessages = {
 export function buildWhatsAppUrl(message: string, phone = WHATSAPP_PHONE) {
   return `https://api.whatsapp.com/send/?phone=${phone}&text=${encodeURIComponent(message)}&type=phone_number&app_absent=0`;
 }
+
+export const brandName = "Óticas Olhar GLC";
+export const rating = 4.8;
+export const reviewCount = 105;
+export const reviewLabel = "4,8 no Google · 105 avaliações";
+export const socialProofText =
+  "★★★★★ 4,8 no Google · 105 avaliações · 2 unidades em Araguaína";
+
+export const units = [
+  {
+    id: "matriz-lina",
+    name: "Matriz Lina",
+    address:
+      "R. Profa. Maria Lina - St. Anhanguera, Araguaína - TO, 77818-540",
+    routeUrl: "https://share.google/kRXV4CLuaIyVDfOTg",
+    streetAddress: "R. Profa. Maria Lina - St. Anhanguera",
+    neighborhood: "St. Anhanguera",
+    postalCode: "77818-540",
+    mapsEmbedUrl:
+      "https://www.google.com/maps?q=R.%20Profa.%20Maria%20Lina%20-%20St.%20Anhanguera%2C%20Aragua%C3%ADna%20-%20TO%2C%2077818-540&output=embed",
+  },
+  {
+    id: "central",
+    name: "Unidade Central",
+    address:
+      "Av. 1º de Janeiro, 1302 - Qd 38, Lt 03 - St. Central, Araguaína - TO, 77803-140",
+    routeUrl: "https://share.google/rBTzAAs2hWYUg43Z2",
+    streetAddress: "Av. 1º de Janeiro, 1302 - Qd 38, Lt 03 - St. Central",
+    neighborhood: "St. Central",
+    postalCode: "77803-140",
+    mapsEmbedUrl:
+      "https://www.google.com/maps?q=Av.%201%C2%BA%20de%20Janeiro%2C%201302%20-%20Qd%2038%2C%20Lt%2003%20-%20St.%20Central%2C%20Aragua%C3%ADna%20-%20TO%2C%2077803-140&output=embed",
+  },
+] as const;
 
 export const brandColors = {
   turquoise: "#54C4D0",
@@ -36,32 +69,34 @@ export const media = {
 };
 
 export const site = {
-  name: "Óticas Olhar GLC",
+  brandName,
+  name: brandName,
   shortName: "Óticas Olhar",
-  legalName: "Óticas Olhar GLC",
+  legalName: brandName,
   city: "Araguaína",
   region: "TO",
-  streetAddress: "Av. 1º de Janeiro, 1302 - Qd 38, Lt 03 - St. Central",
-  neighborhood: "St. Central",
+  streetAddress: units[0].streetAddress,
+  neighborhood: units[0].neighborhood,
   addressLocality: "Araguaína",
   addressRegion: "TO",
-  postalCode: "77803-140",
+  postalCode: units[0].postalCode,
   postalCountry: "BR",
-  displayAddress:
-    "Av. 1º de Janeiro, 1302 - Qd 38, Lt 03 - St. Central, Araguaína - TO, 77803-140",
-  fullAddress:
-    "Av. 1º de Janeiro, 1302 - Qd 38, Lt 03 - St. Central, Araguaína - TO, 77803-140, Brasil",
+  displayAddress: "2 unidades em Araguaína - TO",
+  fullAddress: units.map((unit) => unit.address).join(" | "),
   phoneDisplay: "(63) 99293-8550",
   phoneE164: "+5563992938550",
   instagram: "@oticasolharglc",
   instagramUrl: "https://www.instagram.com/oticasolharglc/",
   whatsappUrl: buildWhatsAppUrl(whatsappMessages.site),
-  mapUrl: "https://share.google/rBTzAAs2hWYUg43Z2",
-  mapsRouteUrl: "https://share.google/rBTzAAs2hWYUg43Z2",
-  mapsEmbedUrl:
-    "https://www.google.com/maps?q=Av.%201%C2%BA%20de%20Janeiro%2C%201302%20-%20Qd%2038%2C%20Lt%2003%20-%20St.%20Central%2C%20Aragua%C3%ADna%20-%20TO%2C%2077803-140&output=embed",
-  rating: 4.8,
-  reviewCount: 21,
+  mapUrl: "#contato",
+  mapsRouteUrl: "#contato",
+  mapsEmbedUrl: units[0].mapsEmbedUrl,
+  rating,
+  reviewCount,
+  reviewLabel,
+  socialProofText,
+  unitCount: units.length,
+  units,
   openingHours: {
     weekdays: "Segunda a sexta: horário comercial",
     saturday: "Sábado: consulte disponibilidade",
@@ -72,23 +107,13 @@ export const site = {
     "Armações, óculos de sol e lentes com orientação próxima em Araguaína.",
   logoIcon: "/logo%20oticas%20olhar.jpg",
   heroImage: media.heroPoster,
-  locations: [
-    {
-      id: "central",
-      name: "Unidade Central",
-      address:
-        "Av. 1º de Janeiro, 1302 - Qd 38, Lt 03 - St. Central, Araguaína - TO, 77803-140",
-      streetAddress: "Av. 1º de Janeiro, 1302 - Qd 38, Lt 03 - St. Central",
-      neighborhood: "St. Central",
-      postalCode: "77803-140",
-      phoneDisplay: "(63) 99293-8550",
-      phoneE164: "+5563992938550",
-      whatsappPhone: WHATSAPP_PHONE,
-      mapUrl: "https://share.google/rBTzAAs2hWYUg43Z2",
-      mapsEmbedUrl:
-        "https://www.google.com/maps?q=Av.%201%C2%BA%20de%20Janeiro%2C%201302%20-%20Qd%2038%2C%20Lt%2003%20-%20St.%20Central%2C%20Aragua%C3%ADna%20-%20TO%2C%2077803-140&output=embed",
-    },
-  ],
+  locations: units.map((unit) => ({
+    ...unit,
+    phoneDisplay: "(63) 99293-8550",
+    phoneE164: "+5563992938550",
+    whatsappPhone: WHATSAPP_PHONE,
+    mapUrl: unit.routeUrl,
+  })),
 };
 
 export const navItems = [
@@ -100,8 +125,8 @@ export const navItems = [
 ];
 
 export const testimonialsSummary = {
-  rating: 4.8,
-  total: 21,
+  rating,
+  total: reviewCount,
   source: "Google",
 };
 

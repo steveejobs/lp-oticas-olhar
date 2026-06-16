@@ -39,12 +39,10 @@ export function FinalCTA() {
           <a
             href={site.mapsRouteUrl}
             className="button button-light"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Traçar rota até a Óticas Olhar no Google Maps"
+            aria-label="Ver rotas das unidades da Óticas Olhar"
           >
             <MapPin size={18} aria-hidden="true" />
-            Traçar rota
+            Ver rotas
           </a>
         </div>
       </div>

@@ -21,11 +21,12 @@ export function GoogleReviewsSection() {
         <AnimatedReveal className="section-heading compact testimonials-heading">
           <p className="eyebrow">Google Reviews</p>
           <h2 id="google-reviews-title">
-            Atendimento, conforto e clareza percebidos por quem já comprou.
+            Clientes que confiam na Óticas Olhar
           </h2>
           <p>
-            {testimonialsSummary.rating.toFixed(1).replace(".", ",")} estrelas
-            no Google, com {testimonialsSummary.total} avaliações de clientes.
+            São {testimonialsSummary.total} avaliações no Google, com nota{" "}
+            {testimonialsSummary.rating.toFixed(1).replace(".", ",")}, somando
+            a experiência das unidades em Araguaína.
           </p>
         </AnimatedReveal>
 
