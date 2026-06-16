@@ -64,6 +64,7 @@ export function LensHero() {
               loop
               playsInline
               autoPlay
+              controls={false}
               preload="metadata"
               aria-label="Vídeo de armações e vitrine da Óticas Olhar"
             />

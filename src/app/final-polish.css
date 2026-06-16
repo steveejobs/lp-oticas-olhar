@@ -8,7 +8,7 @@
 }
 
 .header-inner {
-  height: 84px;
+  height: 108px;
 }
 
 .brand-mark {
@@ -18,9 +18,9 @@
 
 .brand-logo-tile {
   display: grid;
-  width: 72px;
-  height: 72px;
-  flex: 0 0 72px;
+  width: 104px;
+  height: 86px;
+  flex: 0 0 104px;
   place-items: center;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.34);
@@ -31,8 +31,8 @@
 
 .brand-logo-tile img,
 .brand-mark .brand-logo-tile img {
-  width: 66px;
-  height: 66px;
+  width: 96px;
+  height: 78px;
   object-fit: contain;
   filter: drop-shadow(0 8px 14px rgba(21, 24, 25, 0.12));
 }
@@ -78,13 +78,13 @@
 .header-cta {
   border-color: rgba(255, 255, 255, 0.92);
   background: var(--white);
-  color: var(--red-dark);
+  color: #0c6f74;
   box-shadow: 0 12px 28px rgba(21, 24, 25, 0.14);
 }
 
 .header-cta:hover {
   background: #f7ffff;
-  color: var(--red-dark);
+  color: #074f53;
 }
 
 .mobile-menu {
@@ -97,12 +97,14 @@
 }
 
 .button-red {
-  background: var(--red);
+  background: #55c3c8;
+  color: var(--white);
   box-shadow: 0 14px 34px rgba(85, 195, 200, 0.25);
 }
 
 .button-red:hover {
-  background: var(--red-dark);
+  background: #35aeb4;
+  color: var(--white);
   box-shadow: 0 18px 44px rgba(85, 195, 200, 0.28);
 }
 
@@ -111,14 +113,15 @@
   padding-top: clamp(122px, 12vw, 152px);
   background:
     radial-gradient(
-      circle at 78% 18%,
-      rgba(85, 195, 200, 0.18),
-      transparent 22rem
+      circle at 74% 16%,
+      rgba(85, 195, 200, 0.22),
+      transparent 24rem
     ),
     linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.86),
-      rgba(248, 245, 239, 0.94)
+      rgba(255, 255, 255, 0.9),
+      rgba(248, 245, 239, 0.96) 52%,
+      rgba(232, 249, 250, 0.72)
     ),
     var(--paper);
 }
@@ -140,7 +143,9 @@
 
 .olhar-hero-media {
   isolation: isolate;
-  background: #e9f7f8;
+  background:
+    linear-gradient(145deg, rgba(21, 24, 25, 0.9), rgba(12, 111, 116, 0.42)),
+    #e9f7f8;
   transform: translateZ(0);
 }
 
@@ -195,6 +200,15 @@
   );
   opacity: 0.52;
   pointer-events: none;
+}
+
+.olhar-hero-note svg,
+.olhar-proof-stars,
+.olhar-choice-card svg,
+.olhar-experience-item svg,
+.footer-social-link svg,
+.floating-whatsapp svg {
+  color: #0c8f95;
 }
 
 .olhar-proof-strip {
@@ -296,6 +310,152 @@
   );
   opacity: 0.5;
   pointer-events: none;
+}
+
+.olhar-gallery-section {
+  background:
+    linear-gradient(180deg, rgba(248, 245, 239, 0.96), rgba(255, 255, 255, 0.96)),
+    var(--paper);
+}
+
+.olhar-gallery-shell {
+  display: grid;
+  gap: clamp(28px, 5vw, 58px);
+}
+
+.olhar-gallery-intro {
+  max-width: 760px;
+}
+
+.olhar-gallery-sections {
+  display: grid;
+  gap: clamp(18px, 3vw, 34px);
+}
+
+.olhar-gallery-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(300px, 0.72fr);
+  min-height: clamp(380px, 42vw, 560px);
+  overflow: hidden;
+  border: 1px solid rgba(21, 24, 25, 0.09);
+  border-radius: var(--radius-sm);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(235, 250, 251, 0.72)),
+    var(--white);
+  box-shadow: 0 24px 76px rgba(21, 24, 25, 0.09);
+  transition:
+    transform 300ms var(--ease-premium),
+    box-shadow 300ms var(--ease-premium);
+}
+
+.olhar-gallery-panel:nth-child(even) {
+  grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.02fr);
+}
+
+.olhar-gallery-panel:nth-child(even) .olhar-gallery-panel-media {
+  order: 2;
+}
+
+.olhar-gallery-panel:hover {
+  box-shadow: 0 30px 86px rgba(21, 24, 25, 0.12);
+  transform: translateY(-3px);
+}
+
+.olhar-gallery-panel-media {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  background: #e9f7f8;
+}
+
+.olhar-gallery-panel-media::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(120deg, transparent 45%, rgba(255, 255, 255, 0.16), transparent 60%),
+    linear-gradient(180deg, transparent 62%, rgba(21, 24, 25, 0.24));
+  pointer-events: none;
+}
+
+.olhar-gallery-panel-media img,
+.olhar-gallery-panel-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms var(--ease-premium);
+}
+
+.olhar-gallery-panel-media img {
+  position: absolute;
+  inset: 0;
+}
+
+.olhar-gallery-panel:hover .olhar-gallery-panel-media img,
+.olhar-gallery-panel:hover .olhar-gallery-panel-media video {
+  transform: scale(1.025);
+}
+
+.olhar-gallery-panel-copy {
+  display: grid;
+  align-content: center;
+  gap: 14px;
+  padding: clamp(24px, 4vw, 46px);
+}
+
+.olhar-gallery-panel-copy h3 {
+  max-width: 11ch;
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 780;
+  letter-spacing: 0;
+  line-height: 0.98;
+}
+
+.olhar-gallery-panel-copy > p:not(.eyebrow) {
+  max-width: 38ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(0.98rem, 1.08vw, 1.1rem);
+  line-height: 1.65;
+}
+
+.olhar-gallery-cta {
+  display: flex;
+  justify-content: center;
+}
+
+.button-ghost {
+  border-color: rgba(85, 195, 200, 0.34);
+  color: #0c6f74;
+}
+
+.button-ghost:hover,
+.button-ghost:focus-visible {
+  border-color: rgba(85, 195, 200, 0.58);
+  background: rgba(235, 250, 251, 0.9);
+  color: #074f53;
+}
+
+.floating-whatsapp {
+  min-height: 54px;
+  gap: 9px;
+  border-color: rgba(85, 195, 200, 0.42);
+  padding: 12px 17px;
+  background: #55c3c8;
+  color: var(--white);
+  box-shadow: 0 18px 46px rgba(21, 24, 25, 0.18);
+}
+
+.floating-whatsapp:hover {
+  background: #35aeb4;
+  box-shadow: 0 22px 58px rgba(21, 24, 25, 0.2);
+  transform: translateY(-2px);
+}
+
+.floating-whatsapp svg {
+  color: var(--white);
 }
 
 .olhar-location-grid {
@@ -528,20 +688,20 @@
   }
 
   .header-inner {
-    height: 68px;
+    height: 80px;
     gap: 12px;
   }
 
   .brand-logo-tile {
-    width: 56px;
-    height: 56px;
-    flex-basis: 56px;
+    width: 76px;
+    height: 64px;
+    flex-basis: 76px;
   }
 
   .brand-logo-tile img,
   .brand-mark .brand-logo-tile img {
-    width: 52px;
-    height: 52px;
+    width: 70px;
+    height: 58px;
   }
 
   .brand-copy strong {
@@ -554,7 +714,7 @@
   }
 
   .olhar-hero {
-    padding-top: 96px;
+    padding-top: 108px;
   }
 
   .olhar-hero h1 {
@@ -575,6 +735,25 @@
     max-height: 430px;
   }
 
+  .olhar-gallery-panel,
+  .olhar-gallery-panel:nth-child(even) {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .olhar-gallery-panel:nth-child(even) .olhar-gallery-panel-media {
+    order: 0;
+  }
+
+  .olhar-gallery-panel-media {
+    min-height: clamp(280px, 72vw, 420px);
+  }
+
+  .olhar-gallery-panel-copy h3 {
+    max-width: 14ch;
+    font-size: clamp(1.9rem, 8vw, 2.65rem);
+  }
+
   .instagram-main-link {
     min-height: 56px;
   }
@@ -593,8 +772,20 @@
     display: none;
   }
 
+  .brand-logo-tile {
+    width: 70px;
+    height: 60px;
+    flex-basis: 70px;
+  }
+
+  .brand-logo-tile img,
+  .brand-mark .brand-logo-tile img {
+    width: 64px;
+    height: 54px;
+  }
+
   .olhar-hero {
-    padding-top: 90px;
+    padding-top: 100px;
   }
 
   .olhar-hero-media {
@@ -607,6 +798,15 @@
 
   .olhar-bio-image {
     min-height: 96px;
+  }
+
+  .floating-whatsapp {
+    right: 12px;
+    bottom: 12px;
+    max-width: calc(100vw - 24px);
+    min-height: 50px;
+    padding: 11px 14px;
+    font-size: 0.86rem;
   }
 }
 
@@ -625,6 +825,10 @@
   .olhar-experience-item,
   .testimonial-column-card,
   .olhar-gallery-media,
+  .olhar-gallery-panel,
+  .olhar-gallery-panel-media img,
+  .olhar-gallery-panel-media video,
+  .floating-whatsapp,
   .final-panel {
     transition: none;
   }

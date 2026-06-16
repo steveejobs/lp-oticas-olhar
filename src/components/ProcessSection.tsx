@@ -3,7 +3,6 @@ import {
   Glasses,
   HeartHandshake,
   MessageSquareText,
-  Play,
   Store,
 } from "lucide-react";
 import { AnimatedReveal } from "@/components/AnimatedReveal";
@@ -41,17 +40,17 @@ export function ProcessSection() {
             <video
               src={media.experienceVideo}
               poster={media.heroPoster}
+              autoPlay
               muted
               loop
               playsInline
-              controls
+              controls={false}
               preload="metadata"
               aria-label="Vídeo da experiência na Óticas Olhar"
             />
             <span className="video-glass-frame" aria-hidden="true" />
           </div>
           <div className="olhar-experience-video-caption">
-            <Play size={17} aria-hidden="true" />
             <span>Vitrine, atendimento e detalhes para escolher melhor.</span>
           </div>
         </AnimatedReveal>

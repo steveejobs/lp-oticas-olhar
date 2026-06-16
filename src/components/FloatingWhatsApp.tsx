@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { MessageCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import { site } from "@/lib/site";
@@ -32,15 +31,8 @@ export function FloatingWhatsApp() {
       aria-hidden={heroVisible}
       tabIndex={heroVisible ? -1 : undefined}
     >
-      <Image
-        src={site.logoIcon}
-        width={30}
-        height={30}
-        alt=""
-        aria-hidden="true"
-      />
-      <span>WhatsApp</span>
       <MessageCircle size={17} aria-hidden="true" />
+      <span>Falar com a Óticas Olhar</span>
     </a>
   );
 }
