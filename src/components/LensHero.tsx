@@ -1,13 +1,52 @@
+"use client";
+
 import Image from "next/image";
 import { Glasses, MessageCircle, Sparkles } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatedReveal } from "@/components/AnimatedReveal";
-import { GoogleRatingBadge } from "@/components/GoogleRatingBadge";
 import { buildWhatsAppUrl, media, site } from "@/lib/site";
 
 const framesMessage =
   "Olá! Vim pelo site da Óticas Olhar e quero ver opções de armações.";
 
+const heroVideoPlaylist = [
+  media.heroVideo,
+  media.experienceVideo,
+  // Add new hero videos here when they are available in /public/videos/oticas-olhar/.
+  "/galeria%20cole%C3%A7%C3%A3o/Tem%20%C3%B3culos%20que%20complementam%E2%80%A6%20e%20tem%20%C3%B3culos%20que%20dominam%20a%20cena.A%20lente%20espelhada%20traz%20esse%20efeito%20.mp4",
+];
+
 export function LensHero() {
+  const [videoIndex, setVideoIndex] = useState(0);
+  const [isVideoFading, setIsVideoFading] = useState(false);
+  const fadeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const activeVideo = heroVideoPlaylist[videoIndex] ?? media.heroVideo;
+
+  useEffect(() => {
+    return () => {
+      if (fadeTimeoutRef.current) {
+        clearTimeout(fadeTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  function handleVideoEnded() {
+    if (heroVideoPlaylist.length <= 1) {
+      return;
+    }
+
+    setIsVideoFading(true);
+
+    if (fadeTimeoutRef.current) {
+      clearTimeout(fadeTimeoutRef.current);
+    }
+
+    fadeTimeoutRef.current = setTimeout(() => {
+      setVideoIndex((current) => (current + 1) % heroVideoPlaylist.length);
+      setIsVideoFading(false);
+    }, 180);
+  }
+
   return (
     <section className="olhar-hero" aria-labelledby="hero-title">
       <div className="site-shell olhar-hero-grid">
@@ -46,30 +85,25 @@ export function LensHero() {
               Ver opções de armações
             </a>
           </div>
-
-          <GoogleRatingBadge
-            variant="inline"
-            rating={site.rating.toFixed(1).replace(".", ",")}
-            reviews={`${site.reviewCount} avaliações`}
-            className="olhar-hero-rating"
-          />
         </AnimatedReveal>
 
         <AnimatedReveal className="olhar-hero-visual" delay={0.12}>
           <div className="olhar-hero-media">
             <video
-              src={media.heroVideo}
+              key={activeVideo}
+              src={activeVideo}
               poster={media.heroPoster}
+              className={`olhar-hero-video${isVideoFading ? " is-fading" : ""}`}
               muted
-              loop
+              loop={heroVideoPlaylist.length === 1}
               playsInline
               autoPlay
               controls={false}
               preload="metadata"
+              onEnded={handleVideoEnded}
               aria-label="Vídeo de armações e vitrine da Óticas Olhar"
             />
             <span className="lens-sweep" aria-hidden="true" />
-            <span className="optic-line" aria-hidden="true" />
           </div>
           <div className="olhar-hero-note">
             <Sparkles size={18} aria-hidden="true" />

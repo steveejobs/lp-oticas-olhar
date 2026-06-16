@@ -13,28 +13,29 @@
 
 .brand-mark {
   min-width: 0;
+  align-items: center;
   color: var(--white);
 }
 
 .brand-logo-tile {
   display: grid;
-  width: 104px;
+  width: 86px;
   height: 86px;
-  flex: 0 0 104px;
+  flex: 0 0 86px;
   place-items: center;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.34);
-  border-radius: var(--radius-sm);
-  background: #55c3c8;
-  box-shadow: 0 12px 28px rgba(21, 24, 25, 0.16);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .brand-logo-tile img,
 .brand-mark .brand-logo-tile img {
-  width: 96px;
-  height: 78px;
+  width: 86px;
+  height: 86px;
   object-fit: contain;
-  filter: drop-shadow(0 8px 14px rgba(21, 24, 25, 0.12));
+  filter: none;
 }
 
 .brand-copy strong,
@@ -132,9 +133,12 @@
 
 .olhar-hero-logo {
   width: clamp(104px, 11vw, 154px);
-  border-color: rgba(85, 195, 200, 0.28);
-  background: #55c3c8;
-  padding: 4px;
+  height: auto;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+  object-fit: contain;
 }
 
 .olhar-hero-actions {
@@ -162,8 +166,13 @@
 .olhar-hero-media video {
   position: absolute;
   inset: 0;
-  transform: scale(1.02);
-  animation: heroMediaDrift 7s var(--ease-premium) infinite alternate;
+  opacity: 1;
+  transform: scale(1.01);
+  transition: opacity 220ms var(--ease-premium);
+}
+
+.olhar-hero-video.is-fading {
+  opacity: 0;
 }
 
 .lens-sweep {
@@ -184,26 +193,7 @@
   pointer-events: none;
 }
 
-.optic-line {
-  position: absolute;
-  left: 8%;
-  right: 8%;
-  top: 48%;
-  z-index: 2;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.54),
-    rgba(85, 195, 200, 0.48),
-    transparent
-  );
-  opacity: 0.52;
-  pointer-events: none;
-}
-
 .olhar-hero-note svg,
-.olhar-proof-stars,
 .olhar-choice-card svg,
 .olhar-experience-item svg,
 .footer-social-link svg,
@@ -213,6 +203,31 @@
 
 .olhar-proof-strip {
   animation: olharFadeUp 620ms var(--ease-premium) 80ms both;
+}
+
+.routine-lens-section {
+  background:
+    radial-gradient(
+      circle at 86% 10%,
+      rgba(85, 195, 200, 0.14),
+      transparent 22rem
+    ),
+    radial-gradient(
+      circle at 12% 92%,
+      rgba(85, 195, 200, 0.08),
+      transparent 18rem
+    ),
+    linear-gradient(180deg, #fbfaf6 0%, #ffffff 52%, #edfafa 100%);
+}
+
+.olhar-choice-grid {
+  border-color: rgba(85, 195, 200, 0.16);
+  background: rgba(85, 195, 200, 0.16);
+  box-shadow: 0 20px 58px rgba(21, 24, 25, 0.055);
+}
+
+.olhar-choice-card {
+  background: rgba(255, 255, 255, 0.86);
 }
 
 .olhar-choice-card,
@@ -245,10 +260,12 @@
 
 .olhar-experience-video-card {
   position: relative;
+  justify-self: center;
+  width: min(100%, 410px);
   overflow: hidden;
   border: 1px solid rgba(21, 24, 25, 0.1);
   border-radius: var(--radius-sm);
-  padding: 10px;
+  padding: 8px;
   background:
     linear-gradient(
       135deg,
@@ -261,8 +278,8 @@
 
 .olhar-experience-video-frame {
   position: relative;
-  aspect-ratio: 4 / 5;
-  max-height: 520px;
+  aspect-ratio: 9 / 16;
+  max-height: 560px;
   overflow: hidden;
   border: 1px solid rgba(21, 24, 25, 0.08);
   border-radius: var(--radius-sm);
@@ -314,7 +331,11 @@
 
 .olhar-gallery-section {
   background:
-    linear-gradient(180deg, rgba(248, 245, 239, 0.96), rgba(255, 255, 255, 0.96)),
+    linear-gradient(
+      180deg,
+      rgba(248, 245, 239, 0.96),
+      rgba(255, 255, 255, 0.96)
+    ),
     var(--paper);
 }
 
@@ -335,12 +356,16 @@
 .olhar-gallery-panel {
   display: grid;
   grid-template-columns: minmax(0, 1.02fr) minmax(300px, 0.72fr);
-  min-height: clamp(380px, 42vw, 560px);
+  min-height: 0;
   overflow: hidden;
   border: 1px solid rgba(21, 24, 25, 0.09);
   border-radius: var(--radius-sm);
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(235, 250, 251, 0.72)),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.92),
+      rgba(235, 250, 251, 0.72)
+    ),
     var(--white);
   box-shadow: 0 24px 76px rgba(21, 24, 25, 0.09);
   transition:
@@ -363,7 +388,7 @@
 
 .olhar-gallery-panel-media {
   position: relative;
-  min-height: 100%;
+  min-height: clamp(340px, 34vw, 520px);
   overflow: hidden;
   background: #e9f7f8;
 }
@@ -373,7 +398,12 @@
   inset: 0;
   content: "";
   background:
-    linear-gradient(120deg, transparent 45%, rgba(255, 255, 255, 0.16), transparent 60%),
+    linear-gradient(
+      120deg,
+      transparent 45%,
+      rgba(255, 255, 255, 0.16),
+      transparent 60%
+    ),
     linear-gradient(180deg, transparent 62%, rgba(21, 24, 25, 0.24));
   pointer-events: none;
 }
@@ -394,6 +424,29 @@
 .olhar-gallery-panel:hover .olhar-gallery-panel-media img,
 .olhar-gallery-panel:hover .olhar-gallery-panel-media video {
   transform: scale(1.025);
+}
+
+.olhar-gallery-panel.is-video {
+  grid-template-columns: minmax(240px, 0.58fr) minmax(0, 1fr);
+  gap: clamp(16px, 3vw, 34px);
+  align-items: center;
+  padding: clamp(10px, 1.8vw, 18px);
+}
+
+.olhar-gallery-panel.is-video:nth-child(even) {
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.58fr);
+}
+
+.olhar-gallery-panel.is-video .olhar-gallery-panel-media {
+  width: min(100%, 360px);
+  min-height: 0;
+  aspect-ratio: 9 / 16;
+  justify-self: center;
+  border-radius: var(--radius-sm);
+}
+
+.olhar-gallery-panel.is-video .olhar-gallery-panel-copy {
+  padding: clamp(20px, 3.2vw, 38px);
 }
 
 .olhar-gallery-panel-copy {
@@ -693,15 +746,15 @@
   }
 
   .brand-logo-tile {
-    width: 76px;
-    height: 64px;
-    flex-basis: 76px;
+    width: 66px;
+    height: 66px;
+    flex-basis: 66px;
   }
 
   .brand-logo-tile img,
   .brand-mark .brand-logo-tile img {
-    width: 70px;
-    height: 58px;
+    width: 66px;
+    height: 66px;
   }
 
   .brand-copy strong {
@@ -732,21 +785,30 @@
   }
 
   .olhar-experience-video-frame {
-    max-height: 430px;
+    max-height: min(72svh, 500px);
   }
 
   .olhar-gallery-panel,
-  .olhar-gallery-panel:nth-child(even) {
+  .olhar-gallery-panel:nth-child(even),
+  .olhar-gallery-panel.is-video,
+  .olhar-gallery-panel.is-video:nth-child(even) {
     grid-template-columns: 1fr;
     min-height: 0;
   }
 
-  .olhar-gallery-panel:nth-child(even) .olhar-gallery-panel-media {
+  .olhar-gallery-panel:nth-child(even) .olhar-gallery-panel-media,
+  .olhar-gallery-panel.is-video:nth-child(even) .olhar-gallery-panel-media {
     order: 0;
   }
 
   .olhar-gallery-panel-media {
     min-height: clamp(280px, 72vw, 420px);
+  }
+
+  .olhar-gallery-panel.is-video .olhar-gallery-panel-media {
+    width: min(100%, 320px);
+    min-height: 0;
+    max-height: min(72svh, 520px);
   }
 
   .olhar-gallery-panel-copy h3 {
@@ -773,15 +835,15 @@
   }
 
   .brand-logo-tile {
-    width: 70px;
-    height: 60px;
-    flex-basis: 70px;
+    width: 58px;
+    height: 58px;
+    flex-basis: 58px;
   }
 
   .brand-logo-tile img,
   .brand-mark .brand-logo-tile img {
-    width: 64px;
-    height: 54px;
+    width: 58px;
+    height: 58px;
   }
 
   .olhar-hero {
@@ -790,6 +852,14 @@
 
   .olhar-hero-media {
     min-height: 300px;
+  }
+
+  .olhar-experience-video-card {
+    width: min(100%, 340px);
+  }
+
+  .olhar-gallery-panel.is-video .olhar-gallery-panel-media {
+    width: min(100%, 300px);
   }
 
   .olhar-bio-showcase {

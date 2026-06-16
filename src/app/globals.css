@@ -13,6 +13,8 @@
   --line-strong: rgba(21, 24, 25, 0.18);
   --yellow: #d8c3a5;
   --yellow-soft: rgba(216, 195, 165, 0.24);
+  --star-yellow: #ffc400;
+  --star-yellow-shadow: rgba(160, 111, 0, 0.28);
   --red: #55c3c8;
   --red-dark: #2f9da3;
   --optic-blue: #55c3c8;
@@ -2660,11 +2662,11 @@ img {
 }
 
 .google-rating-stars {
-  color: var(--yellow);
+  color: var(--star-yellow);
   font-size: 0.9rem;
   letter-spacing: 0.04em;
   line-height: 1;
-  text-shadow: 0 1px 0 rgba(20, 20, 18, 0.16);
+  text-shadow: 0 1px 0 var(--star-yellow-shadow);
 }
 
 .google-rating-main,
@@ -2777,7 +2779,7 @@ img {
 .review-stars {
   display: inline-flex;
   gap: 3px;
-  color: #d6ad1b;
+  color: var(--star-yellow);
   filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.72));
 }
 
@@ -2785,7 +2787,7 @@ img {
   display: inline-flex;
   gap: 3px;
   margin-bottom: 14px;
-  color: #d6ad1b;
+  color: var(--star-yellow);
   filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.72));
 }
 
@@ -4678,8 +4680,16 @@ img {
   min-height: 100svh;
   padding: clamp(112px, 12vw, 150px) 0 clamp(56px, 7vw, 92px);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(248, 245, 239, 0.9)),
-    radial-gradient(circle at 88% 24%, rgba(85, 195, 200, 0.16), transparent 18rem),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.82),
+      rgba(248, 245, 239, 0.9)
+    ),
+    radial-gradient(
+      circle at 88% 24%,
+      rgba(85, 195, 200, 0.16),
+      transparent 18rem
+    ),
     var(--paper);
 }
 
@@ -4718,10 +4728,6 @@ img {
   color: var(--muted);
   font-size: clamp(1rem, 1.2vw, 1.18rem);
   line-height: 1.72;
-}
-
-.olhar-hero-rating {
-  margin-top: 26px;
 }
 
 .olhar-hero-visual {
@@ -4789,7 +4795,7 @@ img {
 .olhar-proof-stars {
   display: inline-flex;
   gap: 2px;
-  color: var(--red-dark);
+  color: var(--star-yellow);
 }
 
 .olhar-choice-grid {
@@ -6801,7 +6807,7 @@ img {
   align-self: start;
   gap: 2px;
   padding-top: 2px;
-  color: var(--yellow);
+  color: var(--star-yellow);
 }
 
 .instagram-rating-card strong {
@@ -7177,7 +7183,7 @@ img {
 }
 
 .instagram-footer svg {
-  color: var(--yellow);
+  color: var(--star-yellow);
   fill: currentColor;
 }
 
@@ -7812,7 +7818,7 @@ img {
 .proposal-mini-stars {
   display: inline-flex;
   gap: 2px;
-  color: var(--yellow);
+  color: var(--star-yellow);
 }
 
 .proposal-rating-stars {

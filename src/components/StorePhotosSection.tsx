@@ -55,14 +55,15 @@ export function StorePhotosSection() {
           </h2>
           <p>
             Armações, solares, atendimento e ambiente aparecem em blocos mais
-            leves, com uma leitura limpa e alinhada à identidade da Óticas Olhar.
+            leves, com uma leitura limpa e alinhada à identidade da Óticas
+            Olhar.
           </p>
         </AnimatedReveal>
 
         <div className="olhar-gallery-sections">
           {gallerySections.map((item, index) => (
             <AnimatedReveal
-              className="olhar-gallery-panel"
+              className={`olhar-gallery-panel${item.type === "video" ? " is-video" : ""}`}
               delay={index * 0.05}
               key={item.title}
             >
