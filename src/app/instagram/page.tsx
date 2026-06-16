@@ -85,11 +85,6 @@ const galleryMain = [
 
 const gallerySmall = [
   {
-    src: "/oculos.jpg",
-    alt: "Armação preta de óculos",
-    contain: true,
-  },
-  {
     src: "/galeria%20cole%C3%A7%C3%A3o/Um%20cl%C3%A1ssico%20que%20nunca%20erra-%20arma%C3%A7%C3%A3o%20quadrada%2C%20fosca%20e%20cheia%20de%20presen%C3%A7a.Discreto%20no%20brilho%2C%20marc.jpg",
     alt: "Armação quadrada fosca",
   },
